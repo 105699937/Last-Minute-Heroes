@@ -1,4 +1,3 @@
-# Last-Minute-Heroes
 
 ![Team!](./.ignore/LMH.png)
 ```md
