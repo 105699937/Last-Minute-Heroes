@@ -1,0 +1,74 @@
+/* tonoy */
+/* 08.04.2025 */
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* font-family: "Varela Round", sans-serif; */
+    font-family: "Roboto", sans-serif;
+    border: 1px solid black;
+
+}
+
+/* Styling the Home Page */
+
+body{
+    /* only for now */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid black;
+
+}
+
+header{
+    /* background-color: orange; */
+    display: flex;
+    line-height: 5rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%; /* it will be changed in the media query section according to the device resolution */
+}
+header h1{
+    color: rgb(255, 255, 255);
+    /* width: 100%; */
+    /* margin: auto; */
+    white-space: nowrap;
+    padding: 0rem 2rem;
+    border-radius: 1rem;
+    background-color: rgb(99, 89, 230);
+}
+nav{
+    width: 100%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+nav a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: white;
+    border: 1px solid black;
+
+}
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
