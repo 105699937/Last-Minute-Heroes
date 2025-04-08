@@ -142,3 +142,25 @@ nav a:hover{
 
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
+
+
+/* Rory */
+
+article section form {
+    width: 500px;
+}
+
+article section form label {
+    text-align: left;
+    float: left;
+    width: 175px;
+}
+
+article section form label:after {
+    content: ": ";
+}
+
+article section form input {
+    text-align: left;
+    float: left;
+}
