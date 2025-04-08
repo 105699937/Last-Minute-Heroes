@@ -17,7 +17,8 @@
 /* Styling the Home Page */
 :root{
     --bodyColour : #F7F7F7;
-    --logoTextColour : rgb(99, 89, 230);
+    --logoTextColour1 : rgb(99, 89, 230);
+    --logoTextColour : Orange;
 }
 body{
     /* only for now */
@@ -31,14 +32,16 @@ body{
 }
 
 header{
-    margin: 1rem 0rem;
+    margin: 0rem 0rem 2rem rem;
     display: flex;
     line-height: 5rem;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 80%; /* it will be changed in the media query section according to the device resolution */
-
+    width: 100%; /* it will be changed in the media query section according to the device resolution */
+    box-shadow: 0px 1px 10px 5px rgb(226, 226, 226);
+    padding: 1rem;
+    /* background-color: var(--logoTextColour); */
 }
 .logo{
     width: 100%;
@@ -50,14 +53,17 @@ header{
 header h1{
     
     /* background-color: var(--logoTextColour); */
-    border-radius: 1rem;
-    width: max-content;
-    padding: 0rem 1rem;
+    
+    
+   
 }
 header h1 a{
     text-decoration: none;
-    color: var(--logoTextColour);
-
+    /* color: var(--bodyColour); */
+    padding:  1.5rem;
+    border-radius: 1rem;
+    width: max-content;
+    background-color: var(--logoTextColour2);
 }
 nav{
     width: 100%;
@@ -69,15 +75,15 @@ nav{
 nav a{
     text-decoration: none;
     font-size: 1.5rem;
-    color: var(--logoTextColour);
+    /* color: var(--bodyColour); */
     padding: 0rem 1rem;
     border-radius: 1.5rem;
     transition: background-color .2s ease .1s;
 }
 
 nav a:hover{
-    background-color:var(--logoTextColour);
-    color: white;
+    background-color:var(--bodyColour);
+    color: var(--logoTextColour);
 }
 
 
