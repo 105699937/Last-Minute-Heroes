@@ -58,10 +58,49 @@
                     </fieldset>
                     <br>
                     <label for="StreetAddressInput">Street Address</label>
-                    <input type="text" name="StreetAddress" id="StreetAddressInput" required>
+                    <input type="text" name="StreetAddress" id="StreetAddressInput" pattern="{1,40}" required>
                     <br>
                     <label for="SuburbAddressInput">Suburb/ Town</label>
-                    <input type="text" name="SuburbAddress" id="SuburbAddressInput" required>
+                    <input type="text" name="SuburbAddress" id="SuburbAddressInput" pattern="{1,40}" required>
+                    <br>
+                    <br>
+                    <label for="StateSelect">State</label>
+                    <select name="State" id="StateSelect" required>
+                        <option value="">Please Select</option>
+                        <option value="vic">VIC</option>
+                        <option value="nsw">NSW</option>
+                        <option value="qld">QLD</option>
+                        <option value="nt">NT</option>
+                        <option value="wa">WA</option>
+                        <option value="sa">SA</option>
+                        <option value="tas">TAS</option>
+                        <option value="act">ACT</option>
+                    </select>
+                    <br>
+                    <label for="PostCodeInput">Post Code</label>
+                    <input type="text" name="PostCode" id="PostCodeInput" pattern="(0[289][0-9]{2})|([123456789][0-9]{3})" required>
+                    <br>
+                    <label for="EmailInput">Email Address</label>
+                    <input type="email" name="Email" id="EmailInput"  required>
+                    <br>
+                    <label for="PhoneInput">Phone Number</label>
+                    <input type="text" name="Phone" id="PhoneInput" pattern="[\d ]{8,12}" required>
+                    <br>
+                    <label>Required Skills</label>
+                    <br>
+                    <br>
+                    <label for="Skill1Check">Skill 1</label>
+                    <input type="checkbox" name="Skill1" id="Skill1Check" value="">
+                    <br>
+                    <label for="Skill2Check">Skill 2</label>
+                    <input type="checkbox" name="Skill2" id="Skill2Check" value="">
+                    <br>
+                    <label for="Skill3Check">Skill 3</label>
+                    <input type="checkbox" name="Skill3" id="Skill3Check" value="">
+                    <br>
+                    <br>
+                    <label>Other Skills</label>
+                    <textarea></textarea>
                     <br>
 
                 </fieldset>

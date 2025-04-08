@@ -144,10 +144,12 @@ nav a:hover{
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 
 
-/* Rory */
+/*  Rory
+    Basic styling for apply.html forms
+*/
 
 article section form {
-    width: 500px;
+    width: 450px;
 }
 
 article section form label {
@@ -163,4 +165,5 @@ article section form label:after {
 article section form input {
     text-align: left;
     float: left;
+    margin-top: 5px;
 }
