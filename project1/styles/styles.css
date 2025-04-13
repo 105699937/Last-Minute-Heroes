@@ -154,7 +154,16 @@ nav a:hover{
 }
 
 
-
+aside {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-left: 4px solid #00bcd4;
+    margin: 2rem 0;
+    width: 20rem;
+    float: top;
+    color: var(--headingsDark);
+  }
   
 
 @media only screen and (max-width: 1050px) {
