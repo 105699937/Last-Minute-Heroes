@@ -273,6 +273,7 @@ footer a{
 }
 
 .job_page_layout aside{
+    opacity: .8;
     font-size: small;
     position: absolute;
     bottom: 5%;
@@ -297,6 +298,7 @@ footer a{
 .job_page_layout aside:hover{
     /* background-color: var(--logoTextColour1); */
     /* color: white; */
+    opacity: 1;
 }
 .job_page_layout aside a{
     margin-top: 1rem;
@@ -308,6 +310,10 @@ footer a{
     padding: 1rem;
     border-radius: 1rem;
 }
+
+
+/* Doing the Styling part of Apply Page */
+/* Styling the About Page Page */
 @media only screen and (max-width: 1050px) {
     body {
       /* background-color: lightblue; */
