@@ -500,7 +500,7 @@ table,td, th{
 .about_page_layout{
     width: 100%;
     padding: 2rem;
-    /* margin-top: 2rem; */
+    margin-top: 10rem;
 }
 .about_page_layout strong{
     font-size: 1rem;
