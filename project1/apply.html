@@ -36,7 +36,7 @@ Submit to: https://mercury.swin.edu.au/it000000/formtest.php using method="post"
     <main class="application_page_layout top_margin_PC">
 
     <article>
-        <h2>Apply</h2>
+        <h2>Last Minute Heroes Employment</h2>
         <section>
             <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post">
                 <fieldset>
@@ -79,7 +79,7 @@ Submit to: https://mercury.swin.edu.au/it000000/formtest.php using method="post"
                     <br>
                     <label for="StateSelect">State</label>
                     <select name="State" id="StateSelect" required>
-                        <option value="">Please Select</option>
+                        <option value="" selected>Please Select</option>
                         <option value="vic">VIC</option>
                         <option value="nsw">NSW</option>
                         <option value="qld">QLD</option>
@@ -94,7 +94,7 @@ Submit to: https://mercury.swin.edu.au/it000000/formtest.php using method="post"
                     <input type="text" name="PostCode" id="PostCodeInput" pattern="(0[289][0-9]{2})|([123456789][0-9]{3})" required>
                     <br>
                     <label for="EmailInput">Email Address</label>
-                    <input type="email" name="Email" id="EmailInput"  required>
+                    <input type="email" name="Email" id="EmailInput" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" required>
                     <br>
                     <label for="PhoneInput">Phone Number</label>
                     <input type="text" name="Phone" id="PhoneInput" pattern="[\d ]{8,12}" required>
@@ -102,20 +102,19 @@ Submit to: https://mercury.swin.edu.au/it000000/formtest.php using method="post"
                     <label>Required Skills</label>
                     <br>
                     <br>
-                    <label for="Skill1Check">Skill 1</label>
-                    <input type="checkbox" name="Skill1" id="Skill1Check" value="">
+                    <label for="Skill1Check">Programming</label>
+                    <input type="checkbox" name="Skill1" id="Skill1Check" value="Programming">
                     <br>
-                    <label for="Skill2Check">Skill 2</label>
-                    <input type="checkbox" name="Skill2" id="Skill2Check" value="">
+                    <label for="Skill2Check">Enterprise User Management</label>
+                    <input type="checkbox" name="Skill2" id="Skill2Check" value="Enterprise">
                     <br>
-                    <label for="Skill3Check">Skill 3</label>
-                    <input type="checkbox" name="Skill3" id="Skill3Check" value="">
+                    <label for="Skill3Check">CCNP Security</label>
+                    <input type="checkbox" name="Skill3" id="Skill3Check" value="CCNP">
                     <br>
                     <br>
-                    <label>Other Skills</label>
-                    <textarea></textarea>
+                    <label for="OtherSkillsInput">Other Skills</label>
+                    <textarea name="OtherSkills" id="OtherSkillsInput"></textarea>
                     <br>
-
                 </fieldset>
                 <button type="submit">Apply</button>
                 <button type="reset">Reset</button>
