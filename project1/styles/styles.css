@@ -361,15 +361,15 @@ input{
     outline: none;
     padding: .5rem;
 }
-.application_page_layout hgroup{
-    display: flex;
-    flex-direction: row;
-    align-items: space-between;
-    justify-content: space-around;
-    line-height: 1;
+form button {
     padding: 1rem;
-    width: 10rem;
+    background-color: var(--logoTextColour1);
+    border-radius: 1rem;
+    border: none;
+    color: white;
+    margin: 1rem;
 }
+
 /* Styling the About Page Page */
 
 .about_page_layout{
