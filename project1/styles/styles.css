@@ -358,7 +358,7 @@ input{
     border-radius: .2rem;
     border: 1px solid var(--headingslight);
     color: black;
-    outline: none;
+    /* outline: none; */
     padding: .5rem;
 }
 form button {
