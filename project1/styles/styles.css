@@ -410,6 +410,9 @@ table,td, th{
     border-collapse: collapse;
     padding: .2rem;
 }
+.list_padding{
+    padding: 2rem;
+}
 
 @media only screen and (max-width: 1050px) {
     body {
