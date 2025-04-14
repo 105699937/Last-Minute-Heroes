@@ -399,7 +399,7 @@ form button {
 .image-row img{
     /* width: 26rem; */
     width: 100%;
-    height: 15rem;
+    height: 30rem;
     /* width: 100%; */
     border-radius: 2rem;
     padding: 1rem;
@@ -410,11 +410,6 @@ table,td, th{
     border-collapse: collapse;
     padding: .2rem;
 }
-
-
-/* 
-+++++++++++++++++++++++++++++
-+++++++++++++++++++++++++++++ */
 
 @media only screen and (max-width: 1050px) {
     body {
@@ -504,6 +499,11 @@ table,td, th{
 }
 .about_page_layout strong{
     font-size: 1rem;
+}
+.image-row img{
+    /* width: 26rem; */
+    width: 100%;
+    height: 15rem;
 }
 }
 
