@@ -2,12 +2,12 @@
 
 Form Fields:
 
-Job Ref No: Dropdown
-Name, DOB, Gender (radio + fieldset), Address, Suburb, State, Postcode
-Email, Phone
-Required skills (checkbox)
-Other skills (textarea)
-All fields should be validated
+[ ] Job Ref No: Dropdown
+[ ] Name, DOB, Gender (radio + fieldset), Address, Suburb, State, Postcode 
+[ ] Email, Phone
+[ ] Required skills (checkbox)
+[ ] Other skills (textarea)
+[ ] All fields should be validated
 Submit to: https://mercury.swin.edu.au/it000000/formtest.php using method="post"
 -->
 <!DOCTYPE html>
@@ -34,10 +34,10 @@ Submit to: https://mercury.swin.edu.au/it000000/formtest.php using method="post"
         </nav>
     </header>
     <main class="application_page_layout top_margin_PC">
+
     <article>
         <h2>Apply</h2>
         <section>
-            <h2>Apply! Section 1</h2>
             <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post">
                 <fieldset>
                     <legend>Application Form</legend>
@@ -51,10 +51,10 @@ Submit to: https://mercury.swin.edu.au/it000000/formtest.php using method="post"
                     </select>
                     <br>
                     <label for="FirstNameInput">First Name</label>
-                    <input type="text" name="FirstName" id="FirstNameInput" pattern="[A-Za-z]{1,20}" required>
+                    <input type="text" name="FirstName" id="FirstNameInput" pattern="[A-Za-z]{1,20}" placeholder="Your First Name" required>
                     <br>
                     <label for="LastNameInput">Last Name</label>
-                    <input type="text" name="LastName" id="LastNameInput" pattern="[A-Za-z]{1,20}" required>
+                    <input type="text" name="LastName" id="LastNameInput" pattern="[A-Za-z]{1,20}" placeholder="Your Last Name" required>
                     <br>
                     <label for="BirthDateInput">Date of Birth</label>
                     <input type="date" name="BirthDate" id="BirthDateInput">
@@ -123,7 +123,7 @@ Submit to: https://mercury.swin.edu.au/it000000/formtest.php using method="post"
         </section>
 
         <section><h2>Section2 </h2></section>
-        <aside>Aside</aside>
+        <aside class="">Aside</aside>
     </article>
 </main>
     <footer>

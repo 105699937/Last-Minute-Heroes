@@ -322,6 +322,56 @@ footer a{
     background-color: white;
     padding: 5rem;
 }
+.application_page_layout article{
+    width: 100%;
+    padding: 5rem;
+}
+.application_page_layout article h2{
+    font-size: 3rem;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--logoTextColour1);
+    color: white;
+    margin-bottom: 2rem;
+}
+.application_page_layout fieldset{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: center; */
+    width: 100%;
+    border: none;
+}
+legend{
+    font-size: 2rem;
+    border: none;
+}
+label{
+    font-size: large;
+}
+input, select{
+    width: 100%;
+    font-size: 1rem;
+}
+
+input{
+    border-radius: .2rem;
+    border: 1px solid var(--headingslight);
+    color: black;
+    outline: none;
+    padding: .5rem;
+}
+.application_page_layout hgroup{
+    display: flex;
+    flex-direction: row;
+    align-items: space-between;
+    justify-content: space-around;
+    line-height: 1;
+    padding: 1rem;
+    width: 10rem;
+}
+/* Styling the About Page Page */
+
 .about_page_layout{
     width: 75%;
     display: flex;
@@ -331,7 +381,8 @@ footer a{
     background-color: white;
     padding: 5rem;
 }
-/* Styling the About Page Page */
+
+
 @media only screen and (max-width: 1050px) {
     body {
       /* background-color: lightblue; */
@@ -403,12 +454,20 @@ footer a{
 .job_page_layout aside{
     display: none;
 }
-    
+.application_page_layout{
+    width: 100%;
+    padding: 1rem;
+}
+.application_page_layout article{
+    width: 100%;
+    padding: 1rem;
+    margin-top: 2rem;
+}
 
 }
 
 
-
+/* styling the application page */
 
 
 
