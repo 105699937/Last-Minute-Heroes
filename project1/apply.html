@@ -1,22 +1,10 @@
-<!-- 
-
-2 Job descriptions: one Network Administrator (given), and one more (our choice)
-Each job should include:
-Reference ID (5 alphanumeric)
-Title, description, salary range
-Reporting position
-Ordered & unordered lists for:
-Responsibilities
-Required skills: Essential and Preferable
-HTML elements: <section>, <aside>, <ol>, <ul>, nested headings (e.g., <h2>, <h3>) 
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" >
   <meta name="description" content="Applied Web Project Part 1" >
   <meta name="keywords" content="HTML5" >
-  <meta name="author" content="LastMinuteHeroesG02" >
+  <meta name="author" content="LastMinuteHeroesG02 - Rory" >
   <meta name="viewport" content="width=device-width, initial-scale=1.0" >
   <link rel="stylesheet" href="styles/styles.css" type="text/css">
   <title>Apply Now</title>
@@ -34,10 +22,10 @@ HTML elements: <section>, <aside>, <ol>, <ul>, nested headings (e.g., <h2>, <h3>
         </nav>
     </header>
     <main class="application_page_layout top_margin_PC">
+
     <article>
-        <h2>Apply</h2>
+        <h2>Last Minute Heroes Employment</h2>
         <section>
-            <h2>Apply! Section 1</h2>
             <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post">
                 <fieldset>
                     <legend>Application Form</legend>
@@ -45,19 +33,19 @@ HTML elements: <section>, <aside>, <ol>, <ul>, nested headings (e.g., <h2>, <h3>
                     <select name="JobRefNo" id="JobRefNoSelect" required>
                         <option value="">Please Select</option>
                         <option value="NA0000076">(NA0000076) Network Administrator</option>
-                        <option value="SD0000128">(SD0000128) Software Developer</option>
+                        <option value="SD0000128">(SD0000128) Front-End Developer Intern</option>
                         <option value="DA0000365">(DA0000365) Data Analyst</option>
                         <option value="CS0000038">(CS0000038) Cybersecurity Specialist</option>
                     </select>
                     <br>
                     <label for="FirstNameInput">First Name</label>
-                    <input type="text" name="FirstName" id="FirstNameInput" pattern="[A-Za-z]{1,20}" required>
+                    <input type="text" name="FirstName" id="FirstNameInput" pattern="[A-Za-z]{1,20}" placeholder="Your First Name" required>
                     <br>
                     <label for="LastNameInput">Last Name</label>
-                    <input type="text" name="LastName" id="LastNameInput" pattern="[A-Za-z]{1,20}" required>
+                    <input type="text" name="LastName" id="LastNameInput" pattern="[A-Za-z]{1,20}" placeholder="Your Last Name" required>
                     <br>
                     <label for="BirthDateInput">Date of Birth</label>
-                    <input type="date" name="BirthDate" id="BirthDateInput">
+                    <input type="date" name="BirthDate" id="BirthDateInput" required>
                     <br>
                     <br>
                     <fieldset>
@@ -79,7 +67,7 @@ HTML elements: <section>, <aside>, <ol>, <ul>, nested headings (e.g., <h2>, <h3>
                     <br>
                     <label for="StateSelect">State</label>
                     <select name="State" id="StateSelect" required>
-                        <option value="">Please Select</option>
+                        <option value="" selected>Please Select</option>
                         <option value="vic">VIC</option>
                         <option value="nsw">NSW</option>
                         <option value="qld">QLD</option>
@@ -94,7 +82,7 @@ HTML elements: <section>, <aside>, <ol>, <ul>, nested headings (e.g., <h2>, <h3>
                     <input type="text" name="PostCode" id="PostCodeInput" pattern="(0[289][0-9]{2})|([123456789][0-9]{3})" required>
                     <br>
                     <label for="EmailInput">Email Address</label>
-                    <input type="email" name="Email" id="EmailInput"  required>
+                    <input type="email" name="Email" id="EmailInput" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" required>
                     <br>
                     <label for="PhoneInput">Phone Number</label>
                     <input type="text" name="Phone" id="PhoneInput" pattern="[\d ]{8,12}" required>
@@ -102,28 +90,24 @@ HTML elements: <section>, <aside>, <ol>, <ul>, nested headings (e.g., <h2>, <h3>
                     <label>Required Skills</label>
                     <br>
                     <br>
-                    <label for="Skill1Check">Skill 1</label>
-                    <input type="checkbox" name="Skill1" id="Skill1Check" value="">
+                    <label for="Skill1Check">Programming</label>
+                    <input type="checkbox" name="Skill1" id="Skill1Check" value="Programming">
                     <br>
-                    <label for="Skill2Check">Skill 2</label>
-                    <input type="checkbox" name="Skill2" id="Skill2Check" value="">
+                    <label for="Skill2Check">Enterprise User Management</label>
+                    <input type="checkbox" name="Skill2" id="Skill2Check" value="Enterprise">
                     <br>
-                    <label for="Skill3Check">Skill 3</label>
-                    <input type="checkbox" name="Skill3" id="Skill3Check" value="">
+                    <label for="Skill3Check">CCNP Security</label>
+                    <input type="checkbox" name="Skill3" id="Skill3Check" value="CCNP">
                     <br>
                     <br>
-                    <label>Other Skills</label>
-                    <textarea></textarea>
+                    <label for="OtherSkillsInput">Other Skills</label>
+                    <textarea name="OtherSkills" id="OtherSkillsInput"></textarea>
                     <br>
-
                 </fieldset>
                 <button type="submit">Apply</button>
                 <button type="reset">Reset</button>
             </form>
         </section>
-
-        <section><h2>Section2 </h2></section>
-        <aside>Aside</aside>
     </article>
 </main>
     <footer>
