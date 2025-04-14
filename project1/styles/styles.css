@@ -18,6 +18,7 @@
     --bodyColour : #F7F7F7;
     --logoTextColour1 : rgb(77, 66, 234);
     --logoTextColour2 : white;
+    /* --logoTextColour1 : orange; */
     --headingsDark : rgb(23, 23, 23);
     --headingslight : rgb(95, 95, 95);
     --paragraphs : rgb(125, 125, 125);
@@ -112,7 +113,7 @@ nav a:hover{
     margin-top: 7rem;
 }
 
-#main_page_layout{
+.main_page_layout{
     /* height: 100vh; */
     width: 75%;
     display: flex;
@@ -232,6 +233,81 @@ footer a{
     color: white;
     padding: 1rem;
 }
+
+
+/* styling the available jobs  */
+.job_page_layout{
+    flex-direction: row;
+}
+.job_page_navigation{
+        box-shadow: 0px 1px 10px 5px rgba(0, 0, 0,.3);
+}
+.job_page_layout section{
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--logoTextColour1);
+}
+.job_page_layout section h2{
+    color: white;
+}
+.job_page_layout section h3{
+    color: white;
+}
+.job_page_layout section p{
+    color: white;
+}
+.job_page_layout section img{
+    width: 100%;     
+    height: auto;    
+    border-radius: 10px;
+    border-radius: 1rem;
+    margin: 2rem 0rem;
+}
+.highlights{
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.job_page_layout aside{
+    font-size: small;
+    position: absolute;
+    bottom: 5%;
+    right: 3%;
+    transform: translateX(-50%) translateY(-50%);
+    padding: 1rem;
+    margin: 2rem 0;
+    width: 20rem;
+    /* height: 14rem; */
+    border-radius: 1rem;
+    overflow: hidden;
+    color: var(--headingsDark);
+    /* border: 1px solid black; */
+    background-color: #ffffff;
+    transition: all .3s ease .1s;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.job_page_layout aside:hover{
+    /* background-color: var(--logoTextColour1); */
+    /* color: white; */
+}
+.job_page_layout aside a{
+    margin-top: 1rem;
+    padding: 1rem;
+    text-decoration: none;
+    background-color: var(--logoTextColour1);
+    color: white;
+    width: 5rem;
+    padding: 1rem;
+    border-radius: 1rem;
+}
 @media only screen and (max-width: 1050px) {
     body {
       /* background-color: lightblue; */
@@ -273,10 +349,10 @@ footer a{
     }
 
 
-.top_padding_mobile{
+.top_margin_mobile{
         margin-top: 9.5rem;
 }
-#main_page_layout{
+.main_page_layout{
     margin-top: 9.5rem;
     width: 100%;
     padding: 0rem;
@@ -296,7 +372,14 @@ footer a{
     display: none;
 }
 
-
+/* styling the job page */
+.job_page_layout section{
+    padding: 1rem;
+}
+.job_page_layout aside{
+    display: none;
+}
+    
 
 }
 
