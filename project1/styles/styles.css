@@ -237,7 +237,7 @@ footer a{
 
 /* styling the available jobs  */
 .job_page_layout{
-    flex-direction: row;
+    flex-direction: column;
 }
 .job_page_navigation{
         box-shadow: 0px 1px 10px 5px rgba(0, 0, 0,.3);
