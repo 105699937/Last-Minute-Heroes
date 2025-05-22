@@ -1,7 +1,7 @@
 <?php
     // functions
     require_once("functions/mykeys.inc.php");
-    require_once("functions/MyFriendsSystemQuery.php");
+    //require_once("functions/MyFriendsSystemQuery.php");
     require_once("functions/sanitizeInput.php");
 
     // initialise error message to ''
@@ -10,10 +10,34 @@
     // only if server request was POST, execute code
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // ---------- Initialise values ----------
-        $email = sanitizeInput($_POST['email']);
-        $profile_name = sanitizeInput($_POST['profile_name']);
-        $password = sanitizeInput($_POST['password']);
-        $confirmPassword = sanitizeInput($_POST['confirmPassword']);
+        $JobRefNo = sanitizeInput($_POST['JobRefNo']);
+        $FirstName = sanitizeInput($_POST['FirstName']);
+        $LastName = sanitizeInput($_POST['LastName']);
+        $BirthDate= sanitizeInput($_POST['BirthDate']);
+        $Gender = sanitizeInput($_POST['Gender']);
+        $StreetAddress = sanitizeInput($_POST['StreetAddress']);
+        $SuburbAddress = sanitizeInput($_POST['SuburbAddress']);
+        $State = sanitizeInput($_POST['State']);
+        $PostCode = sanitizeInput($_POST['PostCode']);
+        $Email = sanitizeInput($_POST['Email']);
+        $Phone = sanitizeInput($_POST['Phone']);
+        foreach ($_POST['Skills'] as $Skill) {
+            $Skills[] = sanitizeInput($Skill);
+        }
+        //for ($i = 0; $i < count($_POST['Skills']); $i++) {
+        //    $Skill[$i] = sanitizeInput($_POST['Skills'][$i]);
+        //}
+        $OtherSkills = sanitizeInput($_POST['OtherSkills']);
+
+        echo("<p>Job Ref No: " . $JobRefNo . 
+            "\nName: " . $FirstName . " " . $LastName . 
+            "\nBirth Date: " . $BirthDate . 
+            "\nGender: " . $Gender . 
+            "\nAddress: " . $StreetAddress . ", " . $SuburbAddress . ", " . $StateSelect . ", " . $PostCode . 
+            "\nEmail: " . $Email . 
+            "\nPhone: " . $Phone . 
+            "\nSkills" . print_r($Skills) . 
+            "\nOther Skills" . $OtherSkills . "</p>");
     }
 ?>
 <!DOCTYPE html>
@@ -44,7 +68,7 @@
     <article>
         <h2>Last Minute Heroes Employment</h2>
         <section>
-            <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post">
+            <form action="?" method="POST">
                 <fieldset>
                     <legend>Application Form</legend>
                     <label for="JobRefNoSelect">Job Reference Number</label>
