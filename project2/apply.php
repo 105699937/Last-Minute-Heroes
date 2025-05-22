@@ -1,3 +1,21 @@
+<?php
+    // functions
+    require_once("functions/mykeys.inc.php");
+    require_once("functions/MyFriendsSystemQuery.php");
+    require_once("functions/sanitizeInput.php");
+
+    // initialise error message to ''
+    $errorMessage = '';
+
+    // only if server request was POST, execute code
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // ---------- Initialise values ----------
+        $email = sanitizeInput($_POST['email']);
+        $profile_name = sanitizeInput($_POST['profile_name']);
+        $password = sanitizeInput($_POST['password']);
+        $confirmPassword = sanitizeInput($_POST['confirmPassword']);
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,13 +30,13 @@
 
 <body>
     <header>
-        <div class="logo"><h1><a href="index.html">Last Minute Heroes</a></h1></div>
+        <div class="logo"><h1><a href="index.php">Last Minute Heroes</a></h1></div>
 
         <nav>
-            <a href="index.html">Home</a>
-            <a href="jobs.html">Available Jobs</a>
-            <a href="apply.html">Job Applications</a>
-            <a href="about.html">About Us</a>
+            <a href="index.php">Home</a>
+            <a href="jobs.php">Available Jobs</a>
+            <a href="apply.php">Job Applications</a>
+            <a href="about.php">About Us</a>
         </nav>
     </header>
     <main class="application_page_layout top_margin_PC">
@@ -91,13 +109,13 @@
                     <br>
                     <br>
                     <label for="Skill1Check">Programming</label>
-                    <input type="checkbox" name="Skill1" id="Skill1Check" value="Programming">
+                    <input type="checkbox" name="Skills[]" id="Skill1Check" value="Programming">
                     <br>
                     <label for="Skill2Check">Enterprise User Management</label>
-                    <input type="checkbox" name="Skill2" id="Skill2Check" value="Enterprise">
+                    <input type="checkbox" name="Skills[]" id="Skill2Check" value="Enterprise">
                     <br>
                     <label for="Skill3Check">CCNP Security</label>
-                    <input type="checkbox" name="Skill3" id="Skill3Check" value="CCNP">
+                    <input type="checkbox" name="Skills[]" id="Skill3Check" value="CCNP">
                     <br>
                     <br>
                     <label for="OtherSkillsInput">Other Skills</label>

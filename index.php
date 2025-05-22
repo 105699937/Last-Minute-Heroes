@@ -12,13 +12,13 @@
 
 <body>
     <header>
-        <div class="logo"><h1><a href="index.html">Last Minute Heroes</a></h1></div>
+        <div class="logo"><h1><a href="index.php">Last Minute Heroes</a></h1></div>
 
         <nav>
-            <a href="project2/index.html">Home</a>
-            <a href="project2/jobs.html">Available Jobs</a>
-            <a href="project2/apply.html">Job Applications</a>
-            <a href="project2/about.html">About Us</a>
+            <a href="project2/index.php">Home</a>
+            <a href="project2/jobs.php">Available Jobs</a>
+            <a href="project2/apply.php">Job Applications</a>
+            <a href="project2/about.php">About Us</a>
         </nav>
     </header>
     <main class="main_page_layout top_margin_PC top_margin_mobile">
