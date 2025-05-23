@@ -30,16 +30,14 @@
         $OtherSkills = sanitizeInput($_POST['OtherSkills']);
     }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" >
-  <meta name="description" content="Applied Web Project Part 1" >
-  <meta name="keywords" content="HTML5" >
-  <meta name="author" content="LastMinuteHeroesG02 - Rory" >
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-  <link rel="stylesheet" href="styles/styles.css" type="text/css">
-  <title>Apply Now</title>
+    <?php include 'header.inc'?>
+    <meta name="author" content="LastMinuteHeroesG02 - Rory" >
+    <title>Apply Now</title>
 </head>
 
 <body>
@@ -56,6 +54,7 @@
     <main class="application_page_layout top_margin_PC">
     <article>
         <section>
+        <!--  -->
         <?php
             echo("<p>Job Ref No: " . $JobRefNo . "</p>" . 
             "<p>Name: " . $FirstName . " " . $LastName . "</p>" . 

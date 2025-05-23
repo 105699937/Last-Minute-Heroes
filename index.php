@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" >
-    <meta name="description" content="Applied Web Project Part 1" >
-    <meta name="keywords" content="HTML5" >
-    <meta name="author" content="LastMinuteHeroesG02 - Tonoy" >
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-    <link rel="stylesheet" href="project1/styles/styles.css" type="text/css">
+    <?php include './project2/header.inc' ?> 
+    <meta name="author" content="LastMinuteHeroesG02 - Tonoy">
+    <link rel="stylesheet" href="./project2/styles/styles.css" type="text/css">
     <title>Home</title> 
 </head>
 
@@ -24,6 +21,7 @@
     <main class="main_page_layout top_margin_PC top_margin_mobile">
     <article class="left_portion">
         <section class="section1">
+
             <div class="text_content">
                 <h2>Last Minute Heroes</h2>
                 <h3>Your trusted IT saviors, solving digital emergencies — just in time!</h3>
@@ -81,6 +79,9 @@
             
             // begin setup
             echo("<p>Action: Begin Database Setup.</p>");
+
+
+            // TONOY : @RORY I'm not getting this part :) 
 
             // MyFriendsSystemQuery.php is an object with mysqli capabilities which can createTables() and populateTables() with data
             // populates relation 'friends' and 'myfriends' with 10 friends

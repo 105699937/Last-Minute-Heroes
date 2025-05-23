@@ -1,0 +1,3 @@
+I need to move images from ./Images folder to ./styles/images folder according to the instruction  || TONOY 
+
+ - What do you guys think ? 
