@@ -42,42 +42,8 @@
             </div>
             <div class="image"></div>
         </section>
-                <section>
-        <?php
-            // functions
-            require_once("functions/storelogin.php");
-            //require_once("project2/functions/MyFriendsSystemQuery.php");
-
-            // check dir exists
-            if (!is_file("functions/mykeys.inc.php")) {
-                // define default database access details
-                $host = "localhost";
-                $user = "root";
-                $pswd = "";
-                $dbnm = "Last_Minute_Heroes_db";
-                $dir = "functions";
-                $file = "functions/mykeys.inc.php";
-                $umask = "0000";
-                // save database access details to dir/file
-                storeLogin($host, $user, $pswd, $dbnm, $dir, $file, $umask);
-                echo("<p>Success: Database access details stored in 'functions/mykeys.inc.php'.</p>");
-            } else {
-                // database access details
-                require_once("functions/mykeys.inc.php");
-            }
-            
-            // begin setup
-            echo("<p>Action: Begin Database Setup.</p>");
-
-            // MyFriendsSystemQuery.php is an object with mysqli capabilities which can createTables() and populateTables() with data
-            // populates relation 'friends' and 'myfriends' with 10 friends
-            //$populate = new MyFriendsSystemQuery($host, $user, $pswd, $dbnm);
-            // populate tables 'friends' and 'myfriends'
-            //$populate->create_tables();
-            // populate tables 'friends' and 'myfriends'
-            //$populate->populate_tables();
-           // echo("<p>Success: Tables 'friends' and 'myfriends' populated.</p>");
-        ?>
+        <section>
+        
         </section>
     </article>
         <aside id="aside_home">
