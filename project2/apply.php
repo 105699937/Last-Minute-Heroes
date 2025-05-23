@@ -21,23 +21,13 @@
         $PostCode = sanitizeInput($_POST['PostCode']);
         $Email = sanitizeInput($_POST['Email']);
         $Phone = sanitizeInput($_POST['Phone']);
-        foreach ($_POST['Skills'] as $Skill) {
-            $Skills[] = sanitizeInput($Skill);
+        // foreach ($_POST['Skills'] as $Skill) {
+        //     $Skills[] = sanitizeInput($Skill);
+        // }
+        for ($i = 0; $i < count($_POST['Skills']); $i++) {
+            $Skills[$i] = sanitizeInput($_POST['Skills'][$i]);
         }
-        //for ($i = 0; $i < count($_POST['Skills']); $i++) {
-        //    $Skill[$i] = sanitizeInput($_POST['Skills'][$i]);
-        //}
         $OtherSkills = sanitizeInput($_POST['OtherSkills']);
-
-        echo("<p>Job Ref No: " . $JobRefNo . 
-            "\nName: " . $FirstName . " " . $LastName . 
-            "\nBirth Date: " . $BirthDate . 
-            "\nGender: " . $Gender . 
-            "\nAddress: " . $StreetAddress . ", " . $SuburbAddress . ", " . $StateSelect . ", " . $PostCode . 
-            "\nEmail: " . $Email . 
-            "\nPhone: " . $Phone . 
-            "\nSkills" . print_r($Skills) . 
-            "\nOther Skills" . $OtherSkills . "</p>");
     }
 ?>
 <!DOCTYPE html>
@@ -64,8 +54,22 @@
         </nav>
     </header>
     <main class="application_page_layout top_margin_PC">
-
     <article>
+        <section>
+        <?php
+            echo("<p>Job Ref No: " . $JobRefNo . "</p>" . 
+            "<p>Name: " . $FirstName . " " . $LastName . "</p>" . 
+            "<p>Birth Date: " . $BirthDate . "</p>" . 
+            "<p>Gender: " . $Gender . "</p>" . 
+            "<p>Address: " . $StreetAddress . ", " . $SuburbAddress . ", " . $State . ", " . $PostCode . "</p>" . 
+            "<p>Email: " . $Email . "</p>" . 
+            "<p>Phone: " . $Phone . "</p>" . 
+            "<p>Other Skills: " . $OtherSkills . "</p>");
+            echo("<p>");
+            print_r($Skills);
+            echo("</p>");
+        ?>
+        </section>
         <h2>Last Minute Heroes Employment</h2>
         <section>
             <form action="?" method="POST">
