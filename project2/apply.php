@@ -1,37 +1,3 @@
-<?php
-    // functions
-    require_once("functions/mykeys.inc.php");
-    //require_once("functions/MyFriendsSystemQuery.php");
-    require_once("functions/sanitizeInput.php");
-
-    // initialise error message to ''
-    $errorMessage = '';
-
-    // only if server request was POST, execute code
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        // ---------- Initialise values ----------
-        $JobRefNo = sanitizeInput($_POST['JobRefNo']);
-        $FirstName = sanitizeInput($_POST['FirstName']);
-        $LastName = sanitizeInput($_POST['LastName']);
-        $BirthDate= sanitizeInput($_POST['BirthDate']);
-        $Gender = sanitizeInput($_POST['Gender']);
-        $StreetAddress = sanitizeInput($_POST['StreetAddress']);
-        $SuburbAddress = sanitizeInput($_POST['SuburbAddress']);
-        $State = sanitizeInput($_POST['State']);
-        $PostCode = sanitizeInput($_POST['PostCode']);
-        $Email = sanitizeInput($_POST['Email']);
-        $Phone = sanitizeInput($_POST['Phone']);
-        // foreach ($_POST['Skills'] as $Skill) {
-        //     $Skills[] = sanitizeInput($Skill);
-        // }
-        for ($i = 0; $i < count($_POST['Skills']); $i++) {
-            $Skills[$i] = sanitizeInput($_POST['Skills'][$i]);
-        }
-        $OtherSkills = sanitizeInput($_POST['OtherSkills']);
-    }
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,22 +10,6 @@
     <?php include "./nav.inc"?>
     <main class="application_page_layout top_margin_PC">
     <article>
-        <section>
-        <!--  -->
-        <?php
-            echo("<p>Job Ref No: " . $JobRefNo . "</p>" . 
-            "<p>Name: " . $FirstName . " " . $LastName . "</p>" . 
-            "<p>Birth Date: " . $BirthDate . "</p>" . 
-            "<p>Gender: " . $Gender . "</p>" . 
-            "<p>Address: " . $StreetAddress . ", " . $SuburbAddress . ", " . $State . ", " . $PostCode . "</p>" . 
-            "<p>Email: " . $Email . "</p>" . 
-            "<p>Phone: " . $Phone . "</p>" . 
-            "<p>Other Skills: " . $OtherSkills . "</p>");
-            echo("<p>");
-            print_r($Skills);
-            echo("</p>");
-        ?>
-        </section>
         <h2>Last Minute Heroes Employment</h2>
         <section>
             <form action="?" method="POST">
