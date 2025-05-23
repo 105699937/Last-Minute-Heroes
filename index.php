@@ -8,16 +8,7 @@
 </head>
 
 <body>
-    <header>
-        <div class="logo"><h1><a href="index.php">Last Minute Heroes</a></h1></div>
-
-        <nav>
-            <a href="project2/index.php">Home</a>
-            <a href="project2/jobs.php">Available Jobs</a>
-            <a href="project2/apply.php">Job Applications</a>
-            <a href="project2/about.php">About Us</a>
-        </nav>
-    </header>
+    <?php include "./project2/nav.inc"?>
     <main class="main_page_layout top_margin_PC top_margin_mobile">
     <article class="left_portion">
         <section class="section1">
@@ -106,10 +97,6 @@
     </main>
 
 
-    <footer>
-        <a href="https://last-minute-heroes.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?assignee=unassigned&epics=visible&issueParent=10000&atlOrigin=eyJpIjoiY2NlODBiZjEwYzgzNGRjOWE1NzY4M2YxZTZhMTA0ZTIiLCJwIjoiaiJ9">Jira Epic</a>
-        <a href="mailto:info@companyname.com.au">Email</a>
-        <a href="https://github.com/105699937/Last-Minute-Heroes.git">Github</a>
-    </footer>
+    <?php include './project2/footer.inc'?>
 </body>
 </html>

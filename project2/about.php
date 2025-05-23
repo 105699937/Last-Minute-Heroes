@@ -7,16 +7,7 @@
 </head>
 
 <body>
-    <header>
-        <div class="logo"><h1><a href="index.php">Last Minute Heroes</a></h1></div>
-
-        <nav>
-            <a href="index.php">Home</a>
-            <a href="jobs.php">Available Jobs</a>
-            <a href="apply.php">Job Applications</a>
-            <a href="about.php">About Us</a>
-        </nav>
-    </header>
+    <?php include './nav.inc' ?>
     <main class="about_page_layout top_margin_PC">
         <br>
         <strong>Welcome to Last Minute Heroes, where the best Network Admins work.</strong>
@@ -108,6 +99,7 @@
                 </tr>
             </table>
         </section>
-    </main>        
+    </main>     
+    <?php include './footer.inc'?>
 </body>
 </html>

@@ -7,17 +7,8 @@
 </head>
 
 <body>
-  <header class="job_page_navigation">
-      <div class="logo"><h1><a href="index.php">Last Minute Heroes</a></h1></div>
-
-      <nav>
-          <a href="index.php">Home</a>
-          <a href="jobs.php">Available Jobs</a>
-          <a href="apply.php">Job Applications</a>
-          <a href="about.php">About Us</a>
-      </nav>
-  </header>
-
+  
+  <?php include './nav.inc'?>
   <main class ="main_page_layout job_page_layout top_margin_mobile">
     <section>
       <div class="text_content">
@@ -102,8 +93,6 @@
     </aside>
   </main>
 
-  <footer>
-    <a href="https://last-minute-heroes.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?assignee=unassigned&epics=visible&issueParent=10000&atlOrigin=eyJpIjoiY2NlODBiZjEwYzgzNGRjOWE1NzY4M2YxZTZhMTA0ZTIiLCJwIjoiaiJ9">Jira Epic</a>
-  </footer>
+    <?php include './footer.inc'?>
 </body>
 </html>
