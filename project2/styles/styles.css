@@ -20,8 +20,8 @@
     --logoTextColour2 : white;
     /* --logoTextColour1 : orange; */
     --headingsDark : rgb(23, 23, 23);
-    --headingslight : rgb(0, 0, 0);
-    --paragraphs : rgb(0, 0, 0);
+    --headingslight : rgb(95, 95, 95);
+    --paragraphs : rgb(125, 125, 125);
 }
 body{
     /* only for now */
