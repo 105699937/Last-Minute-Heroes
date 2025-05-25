@@ -52,7 +52,7 @@
 <p><strong>Calvin Ngov:</strong> Created the about page (about.php) and implemented the jobs database table with PHP to display job listings dynamically.</p>
 <p><strong>Tanvir Rahman Tonoy:</strong> Implemented reusable PHP components (header.inc, nav.inc, footer.inc), created settings.php for database connection, and developed the HR manager functionality in manage.php.</p>
 <p><strong>Rory Jordaan:</strong> Built the process_eoi.php file to handle form submission, server-side validation, and insertion into the EOI table.</p>
-<p><strong>Liam Mathieson:</strong>PlaceHolder</p>
+<p><strong>Liam Mathieson:</strong> PlaceHolder</p>
 
 
         <h2>Group Photo</h2>
