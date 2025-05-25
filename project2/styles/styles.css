@@ -417,6 +417,34 @@ table,td, th{
     padding: 2rem;
 }
 
+/* date : 25 May 2025 */
+/* Tanvir Tonoy */
+/* Manager_Tools page  */
+.manager_tool_box form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  max-width: 600px; /* optional: controls overall width */
+  margin: 20px auto;
+}
+
+.manager_tool_box form input {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.manager_tool_box input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+
+
+
 @media only screen and (max-width: 1050px) {
     body {
       /* background-color: lightblue; */
