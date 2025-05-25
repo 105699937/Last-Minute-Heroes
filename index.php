@@ -8,7 +8,19 @@
 </head>
 
 <body>
-    <?php include "./project2/nav.inc"?>
+    
+<header class="job_page_navigation">
+      <div class="logo"><h1><a href="index.php">Last Minute Heroes</a></h1></div>
+
+      <nav>
+          <a href="./project2/index.php">Home</a>
+          <a href="./project2/jobs.php">Available Jobs</a>
+          <a href="./project2/apply.php">Job Applications</a>
+          <a href="./project2/manage.php"> Manage EOI </a>
+          <a href="./project2/about.php">About Us</a>
+      </nav>
+  </header>
+
     <main class="main_page_layout top_margin_PC top_margin_mobile">
     <article class="left_portion">
         <section class="section1">

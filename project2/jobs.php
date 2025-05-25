@@ -89,7 +89,7 @@
     <aside>
       <h3>🌐 We are Hiring</h3>
       <p>Stay updated with current trends in IT! Whether you're aiming for a networking, cybersecurity, or software development role, certifications and real-world practice make a huge difference. Apply for relevant positions below.</p>
-      <a href="apply.html" target="_blank">Apply</a>
+      <a href="./apply.php" target="_blank">Apply</a>
     </aside>
   </main>
 
