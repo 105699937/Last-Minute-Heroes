@@ -1,37 +1,3 @@
-<?php
-    // functions
-    require_once("functions/mykeys.inc.php");
-    //require_once("functions/MyFriendsSystemQuery.php");
-    require_once("functions/sanitizeInput.php");
-
-    // initialise error message to ''
-    $errorMessage = '';
-
-    // only if server request was POST, execute code
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        // ---------- Initialise values ----------
-        $JobRefNo = sanitizeInput($_POST['JobRefNo']);
-        $FirstName = sanitizeInput($_POST['FirstName']);
-        $LastName = sanitizeInput($_POST['LastName']);
-        $BirthDate= sanitizeInput($_POST['BirthDate']);
-        $Gender = sanitizeInput($_POST['Gender']);
-        $StreetAddress = sanitizeInput($_POST['StreetAddress']);
-        $SuburbAddress = sanitizeInput($_POST['SuburbAddress']);
-        $State = sanitizeInput($_POST['State']);
-        $PostCode = sanitizeInput($_POST['PostCode']);
-        $Email = sanitizeInput($_POST['Email']);
-        $Phone = sanitizeInput($_POST['Phone']);
-        // foreach ($_POST['Skills'] as $Skill) {
-        //     $Skills[] = sanitizeInput($Skill);
-        // }
-        for ($i = 0; $i < count($_POST['Skills']); $i++) {
-            $Skills[$i] = sanitizeInput($_POST['Skills'][$i]);
-        }
-        $OtherSkills = sanitizeInput($_POST['OtherSkills']);
-    }
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,28 +7,12 @@
 </head>
 
 <body>
-    <?php include "./nav.inc"?>
+    <?php include "nav.inc"?>
     <main class="application_page_layout top_margin_PC">
     <article>
-        <section>
-        <!--  -->
-        <?php
-            echo("<p>Job Ref No: " . $JobRefNo . "</p>" . 
-            "<p>Name: " . $FirstName . " " . $LastName . "</p>" . 
-            "<p>Birth Date: " . $BirthDate . "</p>" . 
-            "<p>Gender: " . $Gender . "</p>" . 
-            "<p>Address: " . $StreetAddress . ", " . $SuburbAddress . ", " . $State . ", " . $PostCode . "</p>" . 
-            "<p>Email: " . $Email . "</p>" . 
-            "<p>Phone: " . $Phone . "</p>" . 
-            "<p>Other Skills: " . $OtherSkills . "</p>");
-            echo("<p>");
-            print_r($Skills);
-            echo("</p>");
-        ?>
-        </section>
         <h2>Last Minute Heroes Employment</h2>
         <section>
-            <form action="?" method="POST">
+            <form action="process_eoi.php" method="POST">
                 <fieldset>
                     <legend>Application Form</legend>
                     <label for="JobRefNoSelect">Job Reference Number</label>
@@ -75,10 +25,10 @@
                     </select>
                     <br>
                     <label for="FirstNameInput">First Name</label>
-                    <input type="text" name="FirstName" id="FirstNameInput" pattern="[A-Za-z]{1,20}" placeholder="Your First Name" required>
+                    <input type="text" name="FirstName" id="FirstNameInput" placeholder="Your First Name" required>
                     <br>
                     <label for="LastNameInput">Last Name</label>
-                    <input type="text" name="LastName" id="LastNameInput" pattern="[A-Za-z]{1,20}" placeholder="Your Last Name" required>
+                    <input type="text" name="LastName" id="LastNameInput" placeholder="Your Last Name" required>
                     <br>
                     <label for="BirthDateInput">Date of Birth</label>
                     <input type="date" name="BirthDate" id="BirthDateInput" required>
@@ -87,18 +37,18 @@
                     <fieldset>
                         <legend>Gender</legend>
                         <label for="GenderMale">Male</label>
-                        <input type="radio" name="Gender" id="GenderMale" value="male" required>
+                        <input type="radio" name="Gender" id="GenderMale" value="m">
                         <label for="GenderFemale">Female</label>
-                        <input type="radio" name="Gender" id="GenderFemale" value="female" required>
+                        <input type="radio" name="Gender" id="GenderFemale" value="f">
                         <label for="GenderUnspecified">Unspecified</label>
-                        <input type="radio" name="Gender" id="GenderUnspecified" value="unspecified" required>
+                        <input type="radio" name="Gender" id="GenderUnspecified" value="u">
                     </fieldset>
                     <br>
                     <label for="StreetAddressInput">Street Address</label>
-                    <input type="text" name="StreetAddress" id="StreetAddressInput" pattern="{1,40}" required>
+                    <input type="text" name="StreetAddress" id="StreetAddressInput">
                     <br>
                     <label for="SuburbAddressInput">Suburb/ Town</label>
-                    <input type="text" name="SuburbAddress" id="SuburbAddressInput" pattern="{1,40}" required>
+                    <input type="text" name="SuburbAddress" id="SuburbAddressInput">
                     <br>
                     <br>
                     <label for="StateSelect">State</label>
@@ -115,7 +65,7 @@
                     </select>
                     <br>
                     <label for="PostCodeInput">Post Code</label>
-                    <input type="text" name="PostCode" id="PostCodeInput" pattern="(0[289][0-9]{2})|([123456789][0-9]{3})" required>
+                    <input type="text" name="PostCode" id="PostCodeInput">
                     <br>
                     <label for="EmailInput">Email Address</label>
                     <input type="email" name="Email" id="EmailInput" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" required>
@@ -140,12 +90,12 @@
                     <textarea name="OtherSkills" id="OtherSkillsInput"></textarea>
                     <br>
                 </fieldset>
-                <button type="submit">Apply</button>
+                <button type="submit" >Apply</button>
                 <button type="reset">Reset</button>
             </form>
         </section>
     </article>
 </main>
-       <?php include './footer.inc'?>
+       <?php include 'footer.inc'?>
 </body>
 </html>

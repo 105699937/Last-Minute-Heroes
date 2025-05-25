@@ -32,9 +32,7 @@ CREATE TABLE EOI (
   postcode CHAR(4) NOT NULL,
   email VARCHAR(320) NOT NULL,
   phone VARCHAR(12) NOT NULL,
-  skill1 varchar(20),
-  skill2 VARCHAR(20),
-  skill3 VARCHAR(20),
+  skills varchar(40),
   other_skills VARCHAR(200),
   PRIMARY KEY (EOInumber)
 ); 
