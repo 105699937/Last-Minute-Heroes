@@ -32,7 +32,7 @@ body{
     justify-content: space-between;
     background-color:var(--bodyColour);
     overflow-x: hidden;
-    background-image: url("../images/bgImage.png");
+    background-image: url("./images/bgImage.png");
     background-size: cover;
     background-position: center;
     background-repeat: repeat;
@@ -150,10 +150,12 @@ nav a:hover{
     color: var(--headingsDark);
 }
 .text_content h3{
-    color: var(--headingslight);
+    /* color: var(--headingslight); */
+    color: black;
 }
 .text_content p{
-    color: var(--paragraphs);
+    /* color: var(--paragraphs); */
+    color: black;
 }
 .section1 .image{
     height: 25rem;
@@ -368,6 +370,7 @@ form button {
     border: none;
     color: white;
     margin: 1rem;
+    font-size: 1rem;
 }
 
 /* Styling the About Page Page */
