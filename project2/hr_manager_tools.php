@@ -10,10 +10,10 @@
     <article>
         <div class="manager_tool_box">
             <form action="?" method="get">
-            <input type="submit" value="list_all_eois" >
-            <input type="submit" value="Filter_by_JRN">
-            <input type="submit" value="Filter_by_Names">
-            <input type="submit" value="Delete_">
+            <input type="submit" value="list all eois" >
+            <input type="submit" value="Filter by JRN">
+            <input type="submit" value="Filter by Names">
+            <input type="submit" value="Delete ">
             <input type="submit" value="Change_status">
             </form>
         <div>

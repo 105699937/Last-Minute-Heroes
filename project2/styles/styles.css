@@ -429,8 +429,9 @@ table,td, th{
 }
 
 .manager_tool_box form input {
+    font-size: 1.5rem;
   padding: 10px;
-  background-color: #4CAF50;
+  background-color: var(--logoTextColour1);
   color: white;
   border: none;
   border-radius: 8px;
@@ -439,7 +440,7 @@ table,td, th{
 }
 
 .manager_tool_box input[type="submit"]:hover {
-  background-color: #45a049;
+  background-color: blue;
 }
 
 
