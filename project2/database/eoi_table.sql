@@ -17,4 +17,24 @@ CREATE TABLE `eoi` (
   `other_skills` text NOT NULL,
   `status` enum('New','Current','Final') NOT NULL DEFAULT "New"
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
- 
+
+// This is more the form the PHP code will require
+CREATE TABLE EOI (
+  EOInumber int(12) NOT NULL AUTO_INCREMENT,
+  job_reference VARCHAR(10) NOT NULL,
+  first_name VARCHAR(20) NOT NULL,
+  last_name VARCHAR(20) NOT NULL,
+  dob DATE NOT NULL,
+  gender ENUM('m', 'f', 'u') NOT NULL,
+  street_address VARCHAR(40) NOT NULL,
+  suburb VARCHAR(40) NOT NULL,
+  state CHAR(3) NOT NULL,
+  postcode CHAR(4) NOT NULL,
+  email VARCHAR(320) NOT NULL,
+  phone VARCHAR(12) NOT NULL,
+  skill1 varchar(20),
+  skill2 VARCHAR(20),
+  skill3 VARCHAR(20),
+  other_skills VARCHAR(200),
+  PRIMARY KEY (EOInumber)
+); 
