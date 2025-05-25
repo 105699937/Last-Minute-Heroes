@@ -49,10 +49,11 @@
         <p>Rahul R</p>
 <br>
         <h2>Our Role</h2>
-        <p>Calvin Ngov: Creating the about page</p>
-        <p>Tanvir Rahman Tonroy: Creating the Job Application Page alongside styling all other pages </p>
-        <p>Rory Jordaan: Creating the apply page and form, general markup and html fixes</p>
-        <p>Liam Mathieson: PlaceHolder</p>
+<p><strong>Calvin Ngov:</strong> Created the about page (about.php) and implemented the jobs database table with PHP to display job listings dynamically.</p>
+<p><strong>Tanvir Rahman Tonoy:</strong> Implemented reusable PHP components (header.inc, nav.inc, footer.inc), created settings.php for database connection, and developed the HR manager functionality in manage.php.</p>
+<p><strong>Rory Jordaan:</strong> Built the process_eoi.php file to handle form submission, server-side validation, and insertion into the EOI table.</p>
+<p><strong>Liam Mathieson:</strong>PlaceHolder</p>
+
 
         <h2>Group Photo</h2>
         <figure class="image-row">
