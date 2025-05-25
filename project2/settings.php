@@ -4,7 +4,7 @@
 $host = "localhost";
 $u_name = "root";
 $u_password = "";
-$db_name = "";
+$db_name = "Last_Minute_Heroes_db";
 ?>
 
 
