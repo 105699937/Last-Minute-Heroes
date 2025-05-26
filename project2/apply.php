@@ -26,13 +26,13 @@
                     </select>
                     <br>
                     <label for="FirstNameInput">First Name</label>
-                    <input type="text" name="FirstName" id="FirstNameInput" placeholder="Your First Name" required>
+                    <input type="text" name="FirstName" id="FirstNameInput" placeholder="Your First Name">
                     <br>
                     <label for="LastNameInput">Last Name</label>
-                    <input type="text" name="LastName" id="LastNameInput" placeholder="Your Last Name" required>
+                    <input type="text" name="LastName" id="LastNameInput" placeholder="Your Last Name">
                     <br>
                     <label for="BirthDateInput">Date of Birth</label>
-                    <input type="date" name="BirthDate" id="BirthDateInput" required>
+                    <input type="date" name="BirthDate" id="BirthDateInput">
                     <br>
                     <br>
                     <fieldset>
@@ -53,7 +53,7 @@
                     <br>
                     <br>
                     <label for="StateSelect">State</label>
-                    <select name="State" id="StateSelect" required>
+                    <select name="State" id="StateSelect">
                         <option value="" selected>Please Select</option>
                         <option value="vic">VIC</option>
                         <option value="nsw">NSW</option>
@@ -69,10 +69,10 @@
                     <input type="text" name="PostCode" id="PostCodeInput">
                     <br>
                     <label for="EmailInput">Email Address</label>
-                    <input type="email" name="Email" id="EmailInput" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" required>
+                    <input type="email" name="Email" id="EmailInput">
                     <br>
                     <label for="PhoneInput">Phone Number</label>
-                    <input type="text" name="Phone" id="PhoneInput" pattern="[\d ]{8,12}" required>
+                    <input type="text" name="Phone" id="PhoneInput">
                     <br>
                     <label>Required Skills</label>
                     <br>

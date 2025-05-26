@@ -62,7 +62,7 @@
                 $errorStatusMessage[] = "Birth Date validation failed. Please enter a valid date of birth.";
             } elseif (!preg_match("/^\d{4}-\d{2}-\d{2}$/", $BirthDate)) {
                 $errorStatus = true;
-                $errorStatusMessage[] = "Birth Date validation failed. Please enter a valid date in the format YYYY-MM-DD.";
+                $errorStatusMessage[] = "Birth Date validation failed. Please enter a valid date in the format DD-MM-YYYY.";
             }
 
             // Gender validation
@@ -89,8 +89,8 @@
                 $errorStatusMessage[] = "State validation failed. Please select a state from the list.";
             }
 
-            // Post Code validation
-            
+            // PostCode validation
+            // Australian Post Code Regex source https://www.etl-tools.com/regular-expressions/is-australian-post-code.html
             if (!preg_match("/^(0[289][0-9]{2})|([1345689][0-9]{3})|(2[0-8][0-9]{2})|(290[0-9])|(291[0-4])|(7[0-4][0-9]{2})|(7[8-9][0-9]{2})$/", $PostCode)) {
                 $errorStatus = true;
                 $errorStatusMessage[] = "Postcode validation failed. Please enter a valid 4 digit, Australian postcode";
@@ -98,6 +98,7 @@
 
             // confirm email is less than 320 bytes in length
             // email size is varchar(320), length of input cannot exceed 320 bytes
+            // Regex is WC3 basic email regex
             if (!$Email = filter_var($Email, FILTER_VALIDATE_EMAIL) || !preg_match("/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/", $Email)) {
                 $errorStatus = true;
                 $errorStatusMessage[] = "Email validation failed. Please enter a valid email address. e.g. 'yournamehere@gmail.com'.";
@@ -132,7 +133,38 @@
                         . ": " . $db_connect->error . "</p>"
                         . "<pre>". var_dump($e->getTraceAsString()) . "</pre>");
                 }
+                // Check Table exists
+                $query = "CREATE TABLE IF NOT EXISTS eoi ("
+                    . "EOInumber int(12) NOT NULL AUTO_INCREMENT,"
+                    . "job_reference VARCHAR(10) NOT NULL,"
+                    . "first_name VARCHAR(20) NOT NULL,"
+                    . "last_name VARCHAR(20) NOT NULL,"
+                    . "dob DATE NOT NULL,"
+                    . "gender ENUM('m', 'f', 'u') NOT NULL,"
+                    . "street_address VARCHAR(40) NOT NULL,"
+                    . "suburb VARCHAR(40) NOT NULL,"
+                    . "state CHAR(3) NOT NULL,"
+                    . "postcode CHAR(4) NOT NULL,"
+                    . "email VARCHAR(320) NOT NULL,"
+                    . "phone VARCHAR(12) NOT NULL,"
+                    . "skills varchar(200) NOT NULL,"
+                    . "other_skills VARCHAR(200),"
+                    . "status ENUM('new','current','final') NOT NULL DEFAULT 'New',"
+                    . "PRIMARY KEY (EOInumber));";
+
+                // Execute query
+                if (!$db_connect->query($query)) {
+                    $e = new \Exception;
+                    die("<p>Failure: Unable to execute the query.</p>"
+                        . "<p>Error code " . $db_connect->errno
+                        . ": " . $db_connect->error . "</p>"
+                        . "<pre>". var_dump($e->getTraceAsString()) . "</pre>");
+                }
+                // Prepare the date for MySQL
+                $BirthDate = date('d-m-Y', strtotime($BirthDate));
+                // Prepare the skills array for MySQL
                 $Skills = implode(' ', $Skills);
+                // Prepare SQL query
                 $query = "INSERT INTO EOI (job_reference, first_name, last_name, dob, gender, street_address, suburb, state, postcode, email, phone, skills, other_skills)
                 VALUES ('$JobRefNo', '$FirstName', '$LastName', $BirthDate, '$Gender', '$StreetAddress', '$SuburbAddress', '$State', '$PostCode', '$Email', '$Phone', '$Skills', '$OtherSkills');";
                 
