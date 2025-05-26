@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(empty($_SESSION['name'])){
+    header("location:manage.php");
+}
+session_reset();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
