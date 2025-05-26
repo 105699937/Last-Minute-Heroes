@@ -15,10 +15,17 @@ if(isset($_SESSION['name'])){
 <article>
 <h2>📋 All EOIs</h2>    
 
-<form action="delete_applications.php" method="post">
+<form action="change_status.php" method="post">
     <label for="eoi_number">EOI Number</label>
     <input type="text" name = "eoi_number" placeholder="Please Enter EOI number ">
-    <input type="submit" value="delete" name="delete_btn">
+    <label for="status">Set New Status</label>
+     <select name="status" id="status">
+                        <option value="">Please Select</option>
+                        <option value="New">New</option>
+                        <option value="Current">Current</option>
+                        <option value="Final">Final</option>
+    </select>
+    <input type="submit" value="Change Status" name="change_status">
 </form>
 <section id="all_application_section">
 <h5>📋 bigger screen - better experience </h5>    
@@ -66,9 +73,38 @@ if (mysqli_num_rows($result) > 0) {
 
     echo "</table>";
 } else {
-    echo "<p>😕 No EOIs found in the database.</p>";
+    echo "<p> No EOIs found in the database.</p>";
 }
 
+// change status 
+if (isset($_POST['change_status'])) {
+    $eoi_number = mysqli_real_escape_string($conn, trim($_POST['eoi_number']));
+    $status = mysqli_real_escape_string($conn, trim($_POST['status']));
+
+    // Validation
+    if (empty($eoi_number) || empty($status)) {
+        echo "<p>⚠️ Please enter both EOI Number and a new status.</p>";
+        exit;
+    }
+
+    // Check if EOI exists
+    $check_query = "SELECT * FROM eoi WHERE EOInumber = '$eoi_number'";
+    $check_result = mysqli_query($conn, $check_query);
+
+    if (mysqli_num_rows($check_result) > 0) {
+        // Perform update
+        $update_query = "UPDATE eoi SET status = '$status' WHERE EOInumber = '$eoi_number'";
+        if (mysqli_query($conn, $update_query)) {
+            echo "<p>✅ Status updated successfully for EOI #<strong>$eoi_number</strong>.</p>";
+        } else {
+            echo "<p>❌ Error updating status: " . mysqli_error($conn) . "</p>";
+        }
+    } else {
+        echo "<p>❌ No EOI found with number <strong>$eoi_number</strong>.</p>";
+    }
+} else {
+    // echo "<p>⚠️ Invalid request.</p>";
+}
 ?>
 </section>
 </article>
