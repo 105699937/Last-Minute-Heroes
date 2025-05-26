@@ -60,9 +60,13 @@
             if ($BirthDate == "") {
                 $errorStatus = true;
                 $errorStatusMessage[] = "Birth Date validation failed. Please enter a valid date of birth.";
-            } elseif (!preg_match("/^\d{4}-\d{2}-\d{2}$/", $BirthDate)) {
-                $errorStatus = true;
-                $errorStatusMessage[] = "Birth Date validation failed. Please enter a valid date in the format DD-MM-YYYY.";
+            } else {
+                // Birth Date format validation
+                $BirthDate = date('d-m-Y', strtotime($BirthDate));
+                if (!preg_match("/^\d{2}-\d{2}-\d{4}$/", $BirthDate)) {
+                    $errorStatus = true;
+                    $errorStatusMessage[] = "Birth Date validation failed. Please enter a valid date in the format DD-MM-YYYY.";
+                }
             }
 
             // Gender validation
@@ -99,7 +103,7 @@
             // confirm email is less than 320 bytes in length
             // email size is varchar(320), length of input cannot exceed 320 bytes
             // Regex is WC3 basic email regex
-            if (!$Email = filter_var($Email, FILTER_VALIDATE_EMAIL) || !preg_match("/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/", $Email)) {
+            if (!filter_var($Email, FILTER_VALIDATE_EMAIL)) {
                 $errorStatus = true;
                 $errorStatusMessage[] = "Email validation failed. Please enter a valid email address. e.g. 'yournamehere@gmail.com'.";
             } elseif (strlen($Email) > 320) {
@@ -133,7 +137,7 @@
                         . ": " . $db_connect->error . "</p>"
                         . "<pre>". var_dump($e->getTraceAsString()) . "</pre>");
                 }
-                // Check Table exists
+                // Set query to create EOI Table if it doesn't exist
                 $query = "CREATE TABLE IF NOT EXISTS eoi ("
                     . "EOInumber int(12) NOT NULL AUTO_INCREMENT,"
                     . "job_reference VARCHAR(10) NOT NULL,"
@@ -161,13 +165,13 @@
                         . "<pre>". var_dump($e->getTraceAsString()) . "</pre>");
                 }
                 // Prepare the date for MySQL
-                $BirthDate = date('d-m-Y', strtotime($BirthDate));
+                $BirthDate = date('Y-m-d', strtotime($BirthDate));
                 // Prepare the skills array for MySQL
                 $Skills = implode(' ', $Skills);
                 // Prepare SQL query
                 $query = "INSERT INTO EOI (job_reference, first_name, last_name, dob, gender, street_address, suburb, state, postcode, email, phone, skills, other_skills)
-                VALUES ('$JobRefNo', '$FirstName', '$LastName', $BirthDate, '$Gender', '$StreetAddress', '$SuburbAddress', '$State', '$PostCode', '$Email', '$Phone', '$Skills', '$OtherSkills');";
-                
+                VALUES ('$JobRefNo', '$FirstName', '$LastName', STR_TO_DATE('$BirthDate', '%Y-%m-%d'), '$Gender', '$StreetAddress', '$SuburbAddress', '$State', '$PostCode', '$Email', '$Phone', '$Skills', '$OtherSkills');";
+                echo("<p>Query: " . $query . "</p>");
                 // Execute query
                 if (!$db_connect->query($query)) {
                     $e = new \Exception;
