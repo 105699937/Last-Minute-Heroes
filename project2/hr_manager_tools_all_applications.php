@@ -9,7 +9,6 @@
 <main class=" application_page_layout view_all_applicants top_margin_mobile ">
 <article>
 <h2>📋 All EOIs</h2>    
-
 <section id="all_application_section">
 <h5>📋 bigger screen - better experience </h5>    
 

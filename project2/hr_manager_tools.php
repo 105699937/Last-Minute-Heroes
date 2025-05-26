@@ -25,8 +25,7 @@ if(empty($_SESSION['name'])){
             <input type="submit" name="delete_an_application" value="Delete Application">
             <input type="submit" name ="change_status" value="Change status">
             </form>
-</div>
-        
+        </div>
     </article>
     </main>
     <?php include "./footer.inc" ?>
@@ -38,6 +37,6 @@ if (isset($_POST['list_al_eois'])) {
     header("location:hr_manager_tools_all_applications.php");
 }
 if (isset($_POST['filter_by_jrn'])){
-    header("location:hr_manager_tools_all_applications.php");
+    header("location:filter_by_jrn.php");
 }
 ?>

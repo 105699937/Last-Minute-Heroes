@@ -475,6 +475,7 @@ view all applicants
 #all_application_table th{
     background-color: var(--logoTextColour1);
     color: white;
+    padding: 2rem;
 }
 @media only screen and (max-width: 1185px) {
     /* body { */
