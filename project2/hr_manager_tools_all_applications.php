@@ -1,9 +1,7 @@
 <?php
-session_start();
-if(empty($_SESSION['name'])){
+if(isset($_SESSION['name'])){
     header("location:manage.php");
 }
-session_reset();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,6 +31,7 @@ if (mysqli_num_rows($result) > 0) {
             <th>Job Ref</th>
             <th>First Name</th>
             <th>Last Name</th>
+            <th> Date of Birth </th>
             <th>Street</th>
             <th>Suburb</th>
             <th>State</th>
@@ -52,6 +51,7 @@ if (mysqli_num_rows($result) > 0) {
                 <td>{$row['job_reference']}</td>
                 <td>{$row['first_name']}</td>
                 <td>{$row['last_name']}</td>
+                <td>{$row['dob']}</td>
                 <td>{$row['street_address']}</td>
                 <td>{$row['suburb']}</td>
                 <td>{$row['state']}</td>

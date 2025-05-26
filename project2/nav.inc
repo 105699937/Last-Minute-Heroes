@@ -7,9 +7,13 @@
           <a href="apply.php">Job Applications</a>
       <?php 
     session_start();
+    if(isset($_SESSION['login_attempts'])){
+
+    
     if ($_SESSION['login_attempts'] < 3) {
     echo"<a href=\"manage.php\"> Manage EOI </a>";
 }
+    }
     ?>
           <a href="about.php">About Us</a>
       </nav>

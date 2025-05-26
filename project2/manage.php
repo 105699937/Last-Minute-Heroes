@@ -24,12 +24,14 @@
         </section>
         <code>
         <?php 
-        $attempts_left = 3 - $_SESSION['login_attempts'];
+        if(isset($_SESSION['login_attempts'])){
+            $attempts_left = 3 - $_SESSION['login_attempts'];
         if($_SESSION['login_attempts'] >=4){
             echo "too many attempts";
             header("location:index.php");
         }else{
             echo"you have $attempts_left more attempts left";
+        }
         }
         ?>
         </code>
@@ -50,7 +52,7 @@
 
 
 <?php
-session_start();
+// session_start();
 
 if(isset($_SESSION['name'])){
     header("location:hr_manager_tools.php");
@@ -78,13 +80,16 @@ if ($_SESSION['login_attempts'] >= 3) {
 }
 
 // Get login data
+if(isset($_POST['login_id'])){
 $login_id = $_POST["login_id"];
 $password = $_POST["login_password"];
-
+}
 // Check login_id in DB
 $sql = "SELECT * FROM managers WHERE login_id = ?";
 $stmt = mysqli_prepare($conn, $sql);
+if(isset($login_id)){
 mysqli_stmt_bind_param($stmt, "s", $login_id);
+
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 
@@ -107,6 +112,7 @@ if (mysqli_num_rows($result) === 1) {
 }
 
 mysqli_stmt_close($stmt);
+}
 mysqli_close($conn);
 ?>
 
