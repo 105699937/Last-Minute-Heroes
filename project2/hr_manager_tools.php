@@ -13,8 +13,9 @@ if(empty($_SESSION['name'])){
 </head>
 <body>
     <?php include "./nav.inc" ?>
-    <main class="application_page_layout top_margin_PC top_margin_mobile">
+    <main class="application_page_layout top_margin_PC top_margin_mobile hr_manager_tools_page">
     <article>
+        <h2>Choose your Query</h2>
         <div class="manager_tool_box">
             <form action="hr_manager_tools.php" method="post">
             <input type="submit" name="list_al_eois" value="Applications" >
@@ -23,7 +24,7 @@ if(empty($_SESSION['name'])){
             <input type="submit" value="Delete ">
             <input type="submit" value="Change_status">
             </form>
-        <div>
+</div>
         
     </article>
     </main>

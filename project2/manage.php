@@ -52,6 +52,11 @@
 <?php
 session_start();
 
+if(isset($_SESSION['name'])){
+    header("location:hr_manager_tools.php");
+    $_SESSION['login_attempts'] = 0;
+}
+
 // Connect to database
 require_once("settings.php");
 $conn = mysqli_connect($host,$user,$pswd,$dbnm);

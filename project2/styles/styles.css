@@ -124,6 +124,13 @@ nav a:hover{
     padding: 5rem;
 }
 
+/* 26 may | Tanvir Tonoy */
+#welcomeText{
+    margin-top: 1rem;
+    /* border: 3px solid green; */
+    padding-top: 2rem;
+    padding-left: 3rem;
+}
 
 .left_portion{
     /* background-color: red; */
@@ -412,6 +419,7 @@ table,td, th{
     border: 1px solid black;
     border-collapse: collapse;
     padding: .2rem;
+    overflow: hidden;
 }
 .list_padding{
     padding: 2rem;
@@ -423,6 +431,7 @@ table,td, th{
 .manager_tool_box form {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-rows: repeat(auto-fit,minmax(50px,2fr));
   gap: 10px;
   max-width: 600px; /* optional: controls overall width */
   margin: 20px auto;
@@ -444,9 +453,29 @@ table,td, th{
 }
 
 
+/* 26 May 2025 */
+.hr_manager_tools_page{
+    height: 100vh;
+}
 
-
-@media only screen and (max-width: 1050px) {
+/* 
+styling for the tables 
+view all applicants 
+*/
+.view_all_applicants{
+    overflow: hidden;
+    border: 1px solid green;
+}
+#all_application_section{
+    border: 4px solid rgb(155, 75, 152);
+    overflow: hidden;
+    overflow-x: scroll;
+}
+#all_application_table th{
+    background-color: var(--logoTextColour1);
+    color: white;
+}
+@media only screen and (max-width: 1185px) {
     body {
       /* background-color: lightblue; */
     }
@@ -490,6 +519,7 @@ table,td, th{
 .top_margin_mobile{
         margin-top: 9.5rem;
 }
+
 .main_page_layout{
     margin-top: 9.5rem;
     width: 100%;

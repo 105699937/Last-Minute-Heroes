@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?php include "./header.inc" ?>
+    <title>Document</title>
+</head>
+<body>
+    <?php include "./nav.inc" ?>
+<main class=" application_page_layout view_all_applicants top_margin_mobile ">
+<article>
+<h2>📋 All EOIs</h2>    
+<section id="all_application_section">
+    
 <?php
 
 include_once("./settings.php");
@@ -6,8 +19,7 @@ $query = "SELECT * FROM eoi ORDER BY EOInumber ASC";
 $result = mysqli_query($conn, $query);
 
 if (mysqli_num_rows($result) > 0) {
-    echo "<h2>📋 All EOIs</h2>";
-    echo "<table border='1' cellpadding='10'>";
+    echo "<table  id='all_application_table'>";
     echo "<tr>
             <th>EOI Number</th>
             <th>Job Ref</th>
@@ -51,4 +63,10 @@ if (mysqli_num_rows($result) > 0) {
     echo "<p>😕 No EOIs found in the database.</p>";
 }
 
-?>
+?></section>
+</article>
+
+</main>
+<?php include "./footer.inc" ?>
+</body>
+</html>
