@@ -44,7 +44,7 @@ if (isset($_POST['filter_by_names'])){
 if (isset($_POST['delete_an_application'])){
     header("location:delete_applications.php");
 }
-if (isset($_POST['delete_an_application'])){
+if (isset($_POST['change_status'])){
     header("location:change_status.php");
 }
 ?>
