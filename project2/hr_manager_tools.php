@@ -38,4 +38,10 @@ if (isset($_POST['list_al_eois'])) {
 if (isset($_POST['filter_by_jrn'])){
     header("location:filter_by_jrn.php");
 }
+if (isset($_POST['filter_by_names'])){
+    header("location:filter_by_name.php");
+}
+if (isset($_POST['delete_an_application'])){
+    header("location:delete_applications.php");
+}
 ?>
