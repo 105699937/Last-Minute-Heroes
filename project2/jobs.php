@@ -9,7 +9,7 @@
 <body>
   <?php include 'nav.inc' ?>
   <main class="main_page_layout job_page_layout top_margin_mobile">
-    
+    <!-- the query should be executed  -->
     <?php
     require_once("settings.php");
     $conn = @mysqli_connect($host, $user, $pswd, $dbnm);

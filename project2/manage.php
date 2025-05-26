@@ -8,15 +8,18 @@
     <?php include "./nav.inc" ?>
     <main class="application_page_layout top_margin_PC top_margin_mobile">
     <article>
-    <section>
         <h2>HR manager</h2>
+
+    <section>
             <form action="manage.php" method="POST">
-                <label for="ID">ID</label>
-                <input type="text" placeholder="Enter your ID" name="login_id">
-                <label for="password">Password</label>
-                <input type="password" name="login_password" placeholder="*********">
-                <button type="Login">Login</button>
-                <button type="reset">Reset</button>
+                <label for="login_id">ID</label>
+                <input type="text" placeholder="Enter your ID" name="login_id" id="login_id">
+                <label for="login_password">Password</label>
+                <input type="password" name="login_password" id="login_password" placeholder="*********">
+                <input type="submit" value="Login">
+                <input type="reset" value="reset">
+                <!-- <button type="submit">submit</button> -->
+                <!-- <button type="reset">Reset</button> -->
             </form>
         </section>
         <code>

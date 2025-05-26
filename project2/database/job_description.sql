@@ -1,3 +1,19 @@
+CREATE TABLE `jobs` (
+  `job_id` INT AUTO_INCREMENT PRIMARY KEY,
+  `reference_id` VARCHAR(20) NOT NULL,
+  `position` VARCHAR(100) NOT NULL,
+  `job_description` TEXT NOT NULL,
+  `salary_range` VARCHAR(50),
+  `image_url` VARCHAR(255),
+  `reports_to` VARCHAR(100),
+  `responsibilities` TEXT,
+  `skills` TEXT,
+  `preferred` TEXT
+);
+
+
+
+-- we need the table first :) 
 INSERT INTO `jobs` (
   `job_id`, `reference_id`, `position`, `job_description`, `salary_range`,
   `image_url`, `reports_to`, `responsibilities`, `skills`, `preferred`
