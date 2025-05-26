@@ -1,8 +1,9 @@
 <?php
-// if(empty($_SESSION['name'])){
-    // header("location:manage.php");
-    // exit;
-// }
+session_start();
+if(!isset($_SESSION['login'])){
+    header("location:manage.php");
+    session_destroy();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

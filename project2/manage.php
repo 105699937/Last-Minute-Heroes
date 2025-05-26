@@ -101,6 +101,7 @@ if (mysqli_num_rows($result) === 1) {
         $_SESSION['login_attempts'] = 0; // Reset attempts
         // Optional: set login session
         $_SESSION['name'] = $manager['name'];
+        $_SESSION['logged_in'] = true;
         header("location:hr_manager_tools.php");
     } else {
         $_SESSION['login_attempts'] += 1;

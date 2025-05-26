@@ -1,5 +1,6 @@
 <?php
-if(isset($_SESSION['name'])){
+session_start();
+if(!isset($_SESSION['login'])){
     header("location:manage.php");
 }
 ?>
