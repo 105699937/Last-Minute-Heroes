@@ -8,6 +8,7 @@
 
 <body>
     <?php include 'nav.inc'?>
+    
     <main class="main_page_layout top_margin_PC top_margin_mobile">
     <article class="left_portion">
         <section class="section1">

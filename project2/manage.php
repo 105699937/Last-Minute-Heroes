@@ -19,7 +19,17 @@
                 <button type="reset">Reset</button>
             </form>
         </section>
-        <code>now we need to redirect to a page where all the managers tools are available if the credintials are valid else print a message to give genuine informations and block the page after 3 wrong attempts</code>
+        <code>
+        <?php 
+        $attempts_left = 3 - $_SESSION['login_attempts'];
+        if($_SESSION['login_attempts'] >=4){
+            echo "too many attempts";
+            header("location:index.php");
+        }else{
+            echo"you have $attempts_left more attempts left";
+        }
+        ?>
+        </code>
         </article>
     </main>
     <?php include "footer.inc" ?>
@@ -55,7 +65,8 @@ if (!isset($_SESSION['login_attempts'])) {
 
 // Block login if too many attempts
 if ($_SESSION['login_attempts'] >= 3) {
-    die("🚫 Too many login attempts. Please try again later.");
+    // die("🚫 Too many login attempts. Please try again later.");
+    
 }
 
 // Get login data
@@ -80,11 +91,11 @@ if (mysqli_num_rows($result) === 1) {
         header("location:hr_manager_tools.php");
     } else {
         $_SESSION['login_attempts'] += 1;
-        echo "❌ Incorrect password! Attempt " . $_SESSION['login_attempts'] . " of 3";
+        // echo "❌ Incorrect password! Attempt " . $_SESSION['login_attempts'] . " of 3";
     }
 } else {
     $_SESSION['login_attempts'] += 1;
-    echo "❌ Manager not found! Attempt " . $_SESSION['login_attempts'] . " of 3";
+    // echo "❌ Manager not found! Attempt " . $_SESSION['login_attempts'] . " of 3";
 }
 
 mysqli_stmt_close($stmt);
