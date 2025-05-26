@@ -12,6 +12,7 @@
     <article>
         <h2>Last Minute Heroes Employment</h2>
         <section>
+            <h6>Please carefully fill all the fields without any space</h6> 
             <form action="process_eoi.php" method="POST">
                 <fieldset>
                     <legend>Application Form</legend>

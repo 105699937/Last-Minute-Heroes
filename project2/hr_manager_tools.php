@@ -13,18 +13,19 @@ if(empty($_SESSION['name'])){
 </head>
 <body>
     <?php include "./nav.inc" ?>
-    <main class="application_page_layout top_margin_PC top_margin_mobile">
+    <main class="application_page_layout top_margin_PC top_margin_mobile hr_manager_tools_page">
     <article>
+        <p><?php session_start(); echo"<h3>Welcome " . $_SESSION['name'] . "</h3>"; ?></p>
+        <h2>Choose your Query</h2>
         <div class="manager_tool_box">
             <form action="hr_manager_tools.php" method="post">
-            <input type="submit" name="list_al_eois" value="Applications" >
-            <input type="submit" value="Filter by JRN">
-            <input type="submit" value="Filter by Names">
-            <input type="submit" value="Delete ">
-            <input type="submit" value="Change_status">
+            <input type="submit" name="list_al_eois" value="All Applicants" >
+            <input type="submit" name ="filter_by_jrn" value="Filter by JRN">
+            <input type="submit" name= "filter_by_names" value="Filter by Names">
+            <input type="submit" name="delete_an_application" value="Delete Application">
+            <input type="submit" name ="change_status" value="Change status">
             </form>
-        <div>
-        
+        </div>
     </article>
     </main>
     <?php include "./footer.inc" ?>
@@ -35,5 +36,7 @@ if(empty($_SESSION['name'])){
 if (isset($_POST['list_al_eois'])) {
     header("location:hr_manager_tools_all_applications.php");
 }
-
+if (isset($_POST['filter_by_jrn'])){
+    header("location:filter_by_jrn.php");
+}
 ?>

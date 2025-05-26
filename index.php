@@ -23,8 +23,8 @@
 
     <main class="main_page_layout top_margin_PC top_margin_mobile">
     <article class="left_portion">
+        <h2 id="welcomeText">Welcome To</h2> <!-- added this one to avoid validation warning --> 
         <section class="section1">
-
             <div class="text_content">
                 <h2>Last Minute Heroes</h2>
                 <h3>Your trusted IT saviors, solving digital emergencies — just in time!</h3>

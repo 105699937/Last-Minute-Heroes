@@ -11,6 +11,7 @@
     
     <main class="main_page_layout top_margin_PC top_margin_mobile">
     <article class="left_portion">
+        <h2 id="welcomeText">Welcome To</h2>
         <section class="section1">
             <div class="text_content">
                 <h2>Last Minute Heroes</h2>
