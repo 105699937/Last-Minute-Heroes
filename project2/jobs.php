@@ -8,7 +8,7 @@
 
 <body>
   
-  <?php include './nav.inc'?>
+  <?php include 'nav.inc'?>
   <main class ="main_page_layout job_page_layout top_margin_mobile">
     <section>
       <div class="text_content">
@@ -89,10 +89,10 @@
     <aside>
       <h3>🌐 We are Hiring</h3>
       <p>Stay updated with current trends in IT! Whether you're aiming for a networking, cybersecurity, or software development role, certifications and real-world practice make a huge difference. Apply for relevant positions below.</p>
-      <a href="./apply.php" target="_blank">Apply</a>
+      <a href="apply.php" target="_blank">Apply</a>
     </aside>
   </main>
 
-    <?php include './footer.inc'?>
+    <?php include 'footer.inc'?>
 </body>
 </html>

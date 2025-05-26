@@ -1,6 +1,6 @@
 <?php
 require_once("./settings.php");
-$conn = mysqli_connect($host,$u_name,$u_password,$db_name);
+$conn = mysqli_connect($host,$user,$pswd,$dbnm);
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());

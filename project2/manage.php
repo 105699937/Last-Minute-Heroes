@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include "./header.inc"?>
+    <?php include "header.inc"?>
     <title>HR manager</title>
 </head>
 <body>
@@ -22,7 +22,7 @@
         <code>now we need to redirect to a page where all the managers tools are available if the credintials are valid else print a message to give genuine informations and block the page after 3 wrong attempts</code>
         </article>
     </main>
-    <?php include "./footer.inc" ?>
+    <?php include "footer.inc" ?>
 </body>
 </html>
 
@@ -40,8 +40,8 @@
 session_start();
 
 // Connect to database
-require_once("./settings.php");
-$conn = mysqli_connect($host,$u_name,$u_password,$db_name);
+require_once("settings.php");
+$conn = mysqli_connect($host,$user,$pswd,$dbnm);
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());

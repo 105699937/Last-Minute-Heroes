@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <?php include './nav.inc' ?>
+    <?php include 'nav.inc' ?>
     <main class="about_page_layout top_margin_PC">
         <br>
         <strong>Welcome to Last Minute Heroes, where the best Network Admins work.</strong>
@@ -101,6 +101,6 @@
             </table>
         </section>
     </main>     
-    <?php include './footer.inc'?>
+    <?php include 'footer.inc'?>
 </body>
 </html>

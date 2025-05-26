@@ -1,10 +1,8 @@
 <?php 
-// u = user 
-// db = Database 
-$host = "localhost";
-$u_name = "root";
-$u_password = "";
-$db_name = "Last_Minute_Heroes_db";
+    $host = "localhost";
+    $user = "root";
+    $pswd = "";
+    $dbnm = "Last_Minute_Heroes_db";
 ?>
 
 
