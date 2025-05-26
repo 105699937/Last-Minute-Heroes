@@ -16,7 +16,7 @@
                 <fieldset>
                     <legend>Application Form</legend>
                     <label for="JobRefNoSelect">Job Reference Number</label>
-                    <select name="JobRefNo" id="JobRefNoSelect" required>
+                    <select name="JobRefNo" id="JobRefNoSelect">
                         <option value="">Please Select</option>
                         <option value="NA0000076">(NA0000076) Network Administrator</option>
                         <option value="SD0000128">(SD0000128) Front-End Developer Intern</option>

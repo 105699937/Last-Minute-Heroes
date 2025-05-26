@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include './project2/header.inc' ?> 
+    <?php include 'project2/header.inc' ?> 
     <meta name="author" content="LastMinuteHeroesG02 - Tonoy">
-    <link rel="stylesheet" href="./project2/styles/styles.css" type="text/css">
+    <link rel="stylesheet" href="project2/styles/styles.css" type="text/css">
     <title>Home</title> 
 </head>
 
@@ -13,11 +13,11 @@
       <div class="logo"><h1><a href="index.php">Last Minute Heroes</a></h1></div>
 
       <nav>
-          <a href="./project2/index.php">Home</a>
-          <a href="./project2/jobs.php">Available Jobs</a>
-          <a href="./project2/apply.php">Job Applications</a>
-          <a href="./project2/manage.php"> Manage EOI </a>
-          <a href="./project2/about.php">About Us</a>
+          <a href="project2/index.php">Home</a>
+          <a href="project2/jobs.php">Available Jobs</a>
+          <a href="project2/apply.php">Job Applications</a>
+          <a href="project2/manage.php"> Manage EOI </a>
+          <a href="project2/about.php">About Us</a>
       </nav>
   </header>
 
@@ -56,46 +56,6 @@
             </div>
             <div class="image"></div>
         </section>
-        <section>
-        <?php
-            // functions
-            require_once("project2/functions/storelogin.php");
-            //require_once("project2/functions/MyFriendsSystemQuery.php");
-
-            // check dir exists
-            if (!is_file("project2/functions/mykeys.inc.php")) {
-                // define default database access details
-                $host = "localhost";
-                $user = "root";
-                $pswd = "";
-                $dbnm = "Last_Minute_Heroes_db";
-                $dir = "project2/functions";
-                $file = "project2/functions/mykeys.inc.php";
-                $umask = "0000";
-                // save database access details to dir/file
-                storeLogin($host, $user, $pswd, $dbnm, $dir, $file, $umask);
-                echo("<p>Success: Database access details stored in 'project2/functions/mykeys.inc.php'.</p>");
-            } else {
-                // database access details
-                require_once("project2/functions/mykeys.inc.php");
-            }
-            
-            // begin setup
-            echo("<p>Action: Begin Database Setup.</p>");
-
-
-            // TONOY : @RORY I'm not getting this part :) 
-
-            // MyFriendsSystemQuery.php is an object with mysqli capabilities which can createTables() and populateTables() with data
-            // populates relation 'friends' and 'myfriends' with 10 friends
-            //$populate = new MyFriendsSystemQuery($host, $user, $pswd, $dbnm);
-            // populate tables 'friends' and 'myfriends'
-            //$populate->create_tables();
-            // populate tables 'friends' and 'myfriends'
-            //$populate->populate_tables();
-           // echo("<p>Success: Tables 'friends' and 'myfriends' populated.</p>");
-        ?>
-        </section>
     </article>
     <aside id="aside_home">
         <h4>✨ Did You Know?</h4>
@@ -109,6 +69,6 @@
     </main>
 
 
-    <?php include './project2/footer.inc'?>
+    <?php include 'project2/footer.inc'?>
 </body>
 </html>

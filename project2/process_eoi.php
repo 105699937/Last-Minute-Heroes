@@ -48,7 +48,7 @@
 
             // Validate Inputs
             // First and Last Name validation
-            if(!ctype_alpha($FirstName || !ctype_alpha($LastName))) {
+            if(!ctype_alpha($FirstName) || !ctype_alpha($LastName)) {
                 $errorStatus = true;
                 $errorStatusMessage[] = "Name validation failed. Pleaser enter a valid name using only letters, no spaces.";
             } elseif (strlen($FirstName) > 20 || strlen($LastName) > 20) {
@@ -90,14 +90,15 @@
             }
 
             // Post Code validation
-            if (!preg_match("/((0[289][0-9]{2})|([123456789][0-9]{3})", $PostCode)) {
+            
+            if (!preg_match("/^(0[289][0-9]{2})|([1345689][0-9]{3})|(2[0-8][0-9]{2})|(290[0-9])|(291[0-4])|(7[0-4][0-9]{2})|(7[8-9][0-9]{2})$/", $PostCode)) {
                 $errorStatus = true;
                 $errorStatusMessage[] = "Postcode validation failed. Please enter a valid 4 digit, Australian postcode";
             }
 
             // confirm email is less than 320 bytes in length
             // email size is varchar(320), length of input cannot exceed 320 bytes
-            if (!$Email = filter_var($Email, FILTER_VALIDATE_EMAIL) || !preg_match("^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$", $Email)) {
+            if (!$Email = filter_var($Email, FILTER_VALIDATE_EMAIL) || !preg_match("/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/", $Email)) {
                 $errorStatus = true;
                 $errorStatusMessage[] = "Email validation failed. Please enter a valid email address. e.g. 'yournamehere@gmail.com'.";
             } elseif (strlen($Email) > 320) {
@@ -106,7 +107,7 @@
             }
 
             // Phone Number validation
-            if (!preg_match("/[\d ]{8,12}", $Phone)) {
+            if (!preg_match("/[\d ]{8,12}/", $Phone)) {
                 $errorStatus = true;
                 $errorStatusMessage[] = "Phone Number validation failed. Please enter a valid phone number of 8 to 12 digits.";
             }
@@ -131,9 +132,9 @@
                         . ": " . $db_connect->error . "</p>"
                         . "<pre>". var_dump($e->getTraceAsString()) . "</pre>");
                 }
-
-                $query = "INSERT INTO 'EOI' ('job_reference', 'first_name', 'last_name', 'dob', 'gender', 'street_address', 'suburb', 'state', 'postcode', 'email', 'phone', 'skills', 'other_skills')
-                VALUES ($JobRefNo, '$FirstName', '$LastName', $BirthDate, '$Gender', '$StreetAddress', '$SuburbAddress', '$State', '$PostCode', '$Email', '$Phone', $Skills, '$OtherSkills');";
+                $Skills = implode(' ', $Skills);
+                $query = "INSERT INTO EOI (job_reference, first_name, last_name, dob, gender, street_address, suburb, state, postcode, email, phone, skills, other_skills)
+                VALUES ('$JobRefNo', '$FirstName', '$LastName', $BirthDate, '$Gender', '$StreetAddress', '$SuburbAddress', '$State', '$PostCode', '$Email', '$Phone', '$Skills', '$OtherSkills');";
                 
                 // Execute query
                 if (!$db_connect->query($query)) {

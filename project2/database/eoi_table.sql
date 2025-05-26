@@ -34,5 +34,6 @@ CREATE TABLE EOI (
   phone VARCHAR(12) NOT NULL,
   skills varchar(40),
   other_skills VARCHAR(200),
+  status ENUM('new','current','final') NOT NULL DEFAULT 'New', 
   PRIMARY KEY (EOInumber)
 ); 
