@@ -370,8 +370,21 @@ input{
     /* outline: none; */
     padding: .5rem;
 }
-.manager_login_buttons {
+.manager_login_buttons{
     width: 47%;
+    margin: .5rem;
+  background-color: var(--logoTextColour1); /* Hot pink! */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: 0;
+}
+#logOut_btn{
+    width: 100%;
     margin: .5rem;
   background-color: var(--logoTextColour1); /* Hot pink! */
   color: white;

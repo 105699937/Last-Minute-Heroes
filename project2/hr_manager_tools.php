@@ -36,7 +36,7 @@ if(!isset($_SESSION['name'])){
     </article>
     </main>
     <form action="hr_manager_tools.php" method="post">
-        <input type="submit" value="Log Out" name="logOut" id="logOut">
+        <input type="submit" value="Log Out" name="logOut" id="logOut_btn" >
     </form>
     <?php include "./footer.inc" ?>
 </body>
