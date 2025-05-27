@@ -24,7 +24,7 @@ if(!isset($_SESSION['name'])){
     <input type="submit" value="delete" name="delete_btn">
 </form>
 <section id="all_application_section">
-<h5>📋 bigger screen - better experience </h5>    
+<h5>bigger screen - better experience </h5>    
 
 <?php
 
@@ -69,7 +69,7 @@ if (mysqli_num_rows($result) > 0) {
 
     echo "</table>";
 } else {
-    echo "<p>😕 No EOIs found in the database.</p>";
+    echo "<p> No EOIs found in the database.</p>";
 }
 
 if(isset($_POST['eoi_number'])){
@@ -82,15 +82,15 @@ if(isset($_POST['eoi_number'])){
             if (mysqli_num_rows($check_result) > 0) {
                 $delete_query = "DELETE FROM eoi WHERE EOInumber = '$eoi_number'";
                 if (mysqli_query($conn, $delete_query)) {
-                    echo "<p>✅ Record with EOI Number <strong>$eoi_number</strong> has been deleted.</p>";
+                    echo "<p>Record with EOI Number <strong>$eoi_number</strong> has been deleted. Please Reload to see latest list.</p>";
                 } else {
-                    echo "<p>❌ Error deleting record: " . mysqli_error($conn) . "</p>";
+                    echo "<p>Error deleting record: " . mysqli_error($conn) . "</p>";
                 }
             } else {
-                echo "<p>⚠️ No record found with EOI Number <strong>$eoi_number</strong>.</p>";
+                echo "<p>No record found with EOI Number <strong>$eoi_number</strong>.</p>";
             }
         } else {
-            echo "<p>⚠️ Please enter a valid EOI number.</p>";
+            echo "<p>Please enter a valid EOI number.</p>";
         }
 
         mysqli_close($conn);

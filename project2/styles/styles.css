@@ -430,8 +430,8 @@ table,td, th{
 /* Manager_Tools page  */
 .manager_tool_box form {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  grid-template-rows: repeat(auto-fit,minmax(50px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  /* grid-template-rows: repeat(auto-fit,minmax(50px,1fr)); */
   gap: 10px;
   max-width: 600px; /* optional: controls overall width */
   margin: 20px auto;

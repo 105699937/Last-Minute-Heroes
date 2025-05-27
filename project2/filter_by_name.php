@@ -26,6 +26,10 @@ if(!isset($_SESSION['name'])){
     <input type="submit" name="filter_by_name" value="filter" id="filter_by_name">
     </div>
 </form>
+
+<section id="all_application_section">
+<h5> ----> scroll </h5>    
+
 <?php
 include_once("./settings.php");
 
@@ -39,17 +43,18 @@ if (isset($_POST['filter_by_name'])) {
     $first_name = trim($_POST['first_name']);
     $last_name = trim($_POST['last_name']);
 
-    if (!empty($first_name) && !empty($last_name)) {
-        $query = "SELECT * FROM eoi WHERE first_name = '$first_name' and last_name = '$last_name'";
+    if (empty($first_name) && !empty($last_name)) {
+        $query = "SELECT * FROM eoi WHERE last_name = '$last_name'";
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) > 0) {
-            echo "<h3>Results for $first_name and $last_name</h3>";
+            echo "<h3>Results for $last_name .</h3>";
             echo "<table  id='all_application_table'>";
             echo "<tr>
                     <th>EOI #</th>
                     <th>First Name</th>
                     <th>Last Name</th>
+                    <th>skills</th>
                     <th>Email</th>
                     <th>Status</th>
                   </tr>";
@@ -59,6 +64,38 @@ if (isset($_POST['filter_by_name'])) {
                         <td>{$row['EOInumber']}</td>
                         <td>{$row['first_name']}</td>
                         <td>{$row['last_name']}</td>
+                        <td>{$row['skills']}</td>
+                        <td>{$row['email']}</td>
+                        <td>{$row['status']}</td>
+                      </tr>";
+            }
+
+            echo "</table>";
+        }else {
+            echo "<p>❌ No EOIs found for those names</p>";
+        }
+    }elseif(!empty($first_name) && empty($last_name)){
+        $query = "SELECT * FROM eoi WHERE first_name = '$first_name'";
+        $result = mysqli_query($conn, $query);
+
+        if (mysqli_num_rows($result) > 0) {
+            echo "<h3>Results for $first_name .</h3>";
+            echo "<table  id='all_application_table'>";
+            echo "<tr>
+                    <th>EOI #</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Skills </th>
+                    <th>Email</th>
+                    <th>Status</th>
+                  </tr>";
+
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>
+                        <td>{$row['EOInumber']}</td>
+                        <td>{$row['first_name']}</td>
+                        <td>{$row['last_name']}</td>
+                        <td>{$row['skills']}</td>
                         <td>{$row['email']}</td>
                         <td>{$row['status']}</td>
                       </tr>";
@@ -68,8 +105,37 @@ if (isset($_POST['filter_by_name'])) {
         } else {
             echo "<p>❌ No EOIs found for those names</p>";
         }
-    } else {
+    }elseif(!empty($first_name) && !empty($last_name)){
+            $query = "SELECT * FROM eoi WHERE first_name = '$first_name' and last_name = '$last_name'";
+            $result = mysqli_query($conn, $query);
+
+            if (mysqli_num_rows($result) > 0) {
+            echo "<h3>Results for $first_name and $last_name</h3>";
+            echo "<table  id='all_application_table'>";
+            echo "<tr>
+                    <th>EOI #</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Skills</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                  </tr>";
+
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>
+                        <td>{$row['EOInumber']}</td>
+                        <td>{$row['first_name']}</td>
+                        <td>{$row['last_name']}</td>
+                        <td>{$row['skills']}</td>
+                        <td>{$row['email']}</td>
+                        <td>{$row['status']}</td>
+                      </tr>";
+            }
+
+            echo "</table>";
+        }else {
         echo "<p>⚠️ Please enter names</p>";
+        }
     }
 }
 ?>

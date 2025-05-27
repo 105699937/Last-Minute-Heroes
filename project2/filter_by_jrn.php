@@ -25,6 +25,10 @@ if(!isset($_SESSION['name'])){
     <input type="submit" name="filter_by_jrn" value="filter" id="filter_by_jrn">
     </div>
 </form>
+
+<section id="all_application_section">
+<h5> ----> scroll </h5>    
+
 <?php
 include_once("./settings.php");
 

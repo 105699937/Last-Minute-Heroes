@@ -18,7 +18,7 @@ if(!isset($_SESSION['name'])){
 <article>
 <h2>📋 All EOIs</h2>    
 <section id="all_application_section">
-<h5>📋 bigger screen - better experience </h5>    
+<h5> ----> scroll </h5>    
 
 <?php
 
@@ -34,12 +34,14 @@ if (mysqli_num_rows($result) > 0) {
             <th>Job Ref</th>
             <th>First Name</th>
             <th>Last Name</th>
+            <th>Date of Birth </th>
             <th>Street</th>
             <th>Suburb</th>
             <th>State</th>
             <th>Postcode</th>
             <th>Email</th>
             <th>Phone</th>
+            <th>Skills</td>
             <th>Other Skills</th>
             <th>Status</th>
           </tr>";
@@ -50,12 +52,14 @@ if (mysqli_num_rows($result) > 0) {
                 <td>{$row['job_reference']}</td>
                 <td>{$row['first_name']}</td>
                 <td>{$row['last_name']}</td>
+                <td>{$row['dob']}</td>
                 <td>{$row['street_address']}</td>
                 <td>{$row['suburb']}</td>
                 <td>{$row['state']}</td>
                 <td>{$row['postcode']}</td>
                 <td>{$row['email']}</td>
                 <td>{$row['phone']}</td>
+                <td>{$row['skills']}</td>
                 <td>{$row['other_skills']}</td>
                 <td>{$row['status']}</td>
               </tr>";
