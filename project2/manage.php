@@ -1,3 +1,12 @@
+<?php 
+session_start(); 
+
+if(isset($_SESSION['name'])){
+    header("location:hr_manager_tools.php");
+    $_SESSION['login_attempts'] = 1;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +35,7 @@
         <?php 
         if(isset($_SESSION['login_attempts'])){
             $attempts_left = 3 - $_SESSION['login_attempts'];
-        if($_SESSION['login_attempts'] >=4){
+        if($_SESSION['login_attempts'] >=3){
             echo "too many attempts";
             header("location:index.php");
         }else{
@@ -54,10 +63,6 @@
 <?php
 // session_start();
 
-if(isset($_SESSION['name'])){
-    header("location:hr_manager_tools.php");
-    $_SESSION['login_attempts'] = 0;
-}
 
 // Connect to database
 require_once("settings.php");
@@ -70,13 +75,14 @@ if (!$conn) {
 
 // Initialize attempts if not set
 if (!isset($_SESSION['login_attempts'])) {
-    $_SESSION['login_attempts'] = 0;
+    $_SESSION['login_attempts'] = 1;
 }
 
 // Block login if too many attempts
 if ($_SESSION['login_attempts'] >= 3) {
-    // die("🚫 Too many login attempts. Please try again later.");
-    
+    $_SESSION['error_msg'] = "Too_many_attempts";
+    header("location:frequent_login_attempts.php");
+
 }
 
 // Get login data
@@ -98,10 +104,9 @@ if (mysqli_num_rows($result) === 1) {
 
     if (password_verify($password, $manager['password'])) {
         echo "✅ Login successful! Welcome, " . $manager['name'];
-        $_SESSION['login_attempts'] = 0; // Reset attempts
+        $_SESSION['login_attempts'] = 1; // Reset attempts
         // Optional: set login session
         $_SESSION['name'] = $manager['name'];
-        $_SESSION['logged_in'] = true;
         header("location:hr_manager_tools.php");
     } else {
         $_SESSION['login_attempts'] += 1;

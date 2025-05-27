@@ -1,3 +1,11 @@
+<?php 
+session_start();
+if(!isset($_SESSION['name'])){
+    header("location:manage.php");
+    session_unset();
+    session_destroy();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

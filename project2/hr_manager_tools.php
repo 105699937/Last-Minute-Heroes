@@ -1,4 +1,11 @@
-
+<?php 
+session_start();
+if(!isset($_SESSION['name'])){
+    header("location:manage.php");
+    session_unset();
+    session_destroy();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +16,7 @@
     <?php include "./nav.inc" ?>
     <main class="application_page_layout top_margin_PC top_margin_mobile hr_manager_tools_page">
     <article>
-        <p><?php echo"<h3>Welcome " . $_SESSION['name'] . "</h3>"; ?></p>
+        <p><?php if(isset($_SESSION['name'])){echo"<h3>Welcome " .$_SESSION['name']. "</h3>";}  ?></p>
         <h2>Choose your Query</h2>
         <div class="manager_tool_box">
             <form action="hr_manager_tools.php" method="post">
