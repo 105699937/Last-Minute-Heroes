@@ -25,8 +25,8 @@ if(isset($_SESSION['name'])){
                 <input type="text" placeholder="Enter your ID" name="login_id" id="login_id">
                 <label for="login_password">Password</label>
                 <input type="password" name="login_password" id="login_password" placeholder="*********">
-                <input type="submit" value="Login">
-                <input type="reset" value="reset">
+                <input type="submit" value="Login" class="manager_login_buttons">
+                <input type="reset" value="reset" class="manager_login_buttons">
                 <!-- <button type="submit">submit</button> -->
                 <!-- <button type="reset">Reset</button> -->
             </form>
@@ -104,17 +104,14 @@ if (mysqli_num_rows($result) === 1) {
 
     if (password_verify($password, $manager['password'])) {
         echo "✅ Login successful! Welcome, " . $manager['name'];
-        $_SESSION['login_attempts'] = 1; // Reset attempts
-        // Optional: set login session
+        $_SESSION['login_attempts'] = 1; 
         $_SESSION['name'] = $manager['name'];
         header("location:hr_manager_tools.php");
     } else {
         $_SESSION['login_attempts'] += 1;
-        // echo "❌ Incorrect password! Attempt " . $_SESSION['login_attempts'] . " of 3";
     }
 } else {
     $_SESSION['login_attempts'] += 1;
-    // echo "❌ Manager not found! Attempt " . $_SESSION['login_attempts'] . " of 3";
 }
 
 mysqli_stmt_close($stmt);

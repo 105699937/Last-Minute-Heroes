@@ -2,7 +2,7 @@
     $host = "localhost";
     $user = "root";
     $pswd = "";
-    $dbnm = "Last_Minute_Heroes_db";
+    $dbnm = "l_m_h_db";
 ?>
 
 

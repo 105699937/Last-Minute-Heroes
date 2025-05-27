@@ -175,11 +175,19 @@
                 // Execute query
                 if (!$db_connect->query($query)) {
                     $e = new \Exception;
+                    
                     die("<p>Failure: Unable to execute the query.</p>"
                         . "<p>Error code " . $db_connect->errno
                         . ": " . $db_connect->error . "</p>"
                         . "<pre>". var_dump($e->getTraceAsString()) . "</pre>");
                 }
+                // tonoy : I'm adding this part  
+                    // if the user applies properly we will show him a message and his EOI number
+                    // session_start();
+                    // $_SESSION["applied"] = "yes";
+                    // header("location:job_application_success.php");
+                    // exit();
+                    // why it's not working :( ! 
             }
             // echo errorMessage from previous session
             echo($errorMessage);
