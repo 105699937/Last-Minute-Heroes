@@ -19,8 +19,8 @@ if(!isset($_SESSION['name'])){
 <h2>📋 All EOIs</h2>    
 
 <form action="delete_applications.php" method="post">
-    <label for="eoi_number">EOI Number</label>
-    <input type="text" name = "eoi_number" placeholder="Please Enter EOI number ">
+    <label for="jrn">Job Reference Number</label>
+    <input type="text" name = "jr_number" placeholder="Please Enter Job Reference number " id="jrn">
     <input type="submit" value="delete" name="delete_btn">
 </form>
 <section id="all_application_section">
@@ -72,22 +72,22 @@ if (mysqli_num_rows($result) > 0) {
     echo "<p> No EOIs found in the database.</p>";
 }
 
-if(isset($_POST['eoi_number'])){
-    $eoi_number = mysqli_real_escape_string($conn, trim($_POST['eoi_number']));
+if(isset($_POST['jr_number'])){
+    $jr_number = mysqli_real_escape_string($conn, trim($_POST['jr_number']));
 
-        if (!empty($eoi_number)) {
-            $check_query = "SELECT * FROM eoi WHERE EOInumber = '$eoi_number'";
+        if (!empty($jr_number)) {
+            $check_query = "SELECT * FROM eoi WHERE job_reference = '$jr_number'";
             $check_result = mysqli_query($conn, $check_query);
 
             if (mysqli_num_rows($check_result) > 0) {
-                $delete_query = "DELETE FROM eoi WHERE EOInumber = '$eoi_number'";
+                $delete_query = "DELETE  FROM eoi WHERE job_reference like  '$jr_number'";
                 if (mysqli_query($conn, $delete_query)) {
-                    echo "<p>Record with EOI Number <strong>$eoi_number</strong> has been deleted. Please Reload to see latest list.</p>";
+                    echo "<p>Record with EOI Number <strong>$jr_number</strong> has been deleted. Please Reload to see latest list.</p>";
                 } else {
                     echo "<p>Error deleting record: " . mysqli_error($conn) . "</p>";
                 }
             } else {
-                echo "<p>No record found with EOI Number <strong>$eoi_number</strong>.</p>";
+                echo "<p>No record found with EOI Number <strong>$jr_number</strong>.</p>";
             }
         } else {
             echo "<p>Please enter a valid EOI number.</p>";
