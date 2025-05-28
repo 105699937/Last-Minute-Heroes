@@ -6,7 +6,7 @@ session_start();
 
 if(isset($_SESSION['name'])){
     header("location:hr_manager_tools.php");
-    $_SESSION['login_attempts'] = 1;
+    $_SESSION['login_attempts'] = 0;
 }
 // Connect to database
 $conn = mysqli_connect($host,$user,$pswd,$dbnm);
@@ -18,7 +18,7 @@ if (!$conn) {
 
 // Initialize attempts if not set
 if (!isset($_SESSION['login_attempts'])) {
-    $_SESSION['login_attempts'] = 1;
+    $_SESSION['login_attempts'] = 0;
 }
 
 // Block login if too many attempts
