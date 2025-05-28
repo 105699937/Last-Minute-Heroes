@@ -31,6 +31,31 @@ if(!isset($_SESSION['name'])){
 include_once("./settings.php");
 $conn = mysqli_connect($host,$user,$pswd,$dbnm);
 $query = "SELECT * FROM eoi ORDER BY EOInumber ASC";
+
+if(isset($_POST['jr_number'])){
+    $jr_number = mysqli_real_escape_string($conn, trim($_POST['jr_number']));
+
+        if (!empty($jr_number)) {
+            $check_query = "SELECT * FROM eoi WHERE job_reference = '$jr_number'";
+            $check_result = mysqli_query($conn, $check_query);
+
+            if (mysqli_num_rows($check_result) > 0) {
+                $delete_query = "DELETE  FROM eoi WHERE job_reference like  '$jr_number'";
+                if (mysqli_query($conn, $delete_query)) {
+                    echo "<p>Record with Job Reference Number <strong>$jr_number</strong> has been deleted.</p>";
+                } else {
+                    echo "<p>Error deleting record: " . mysqli_error($conn) . "</p>";
+                }
+            } else {
+                echo "<p>No record found with Job Reference Number <strong>$jr_number</strong>.</p>";
+            }
+        } else {
+            echo "<p>Please enter a valid Job Reference Number.</p>";
+        }
+
+    
+
+}
 $result = mysqli_query($conn, $query);
 
 if (mysqli_num_rows($result) > 0) {
@@ -71,31 +96,8 @@ if (mysqli_num_rows($result) > 0) {
 } else {
     echo "<p> No EOIs found in the database.</p>";
 }
+    mysqli_close($conn);
 
-if(isset($_POST['jr_number'])){
-    $jr_number = mysqli_real_escape_string($conn, trim($_POST['jr_number']));
-
-        if (!empty($jr_number)) {
-            $check_query = "SELECT * FROM eoi WHERE job_reference = '$jr_number'";
-            $check_result = mysqli_query($conn, $check_query);
-
-            if (mysqli_num_rows($check_result) > 0) {
-                $delete_query = "DELETE  FROM eoi WHERE job_reference like  '$jr_number'";
-                if (mysqli_query($conn, $delete_query)) {
-                    echo "<p>Record with EOI Number <strong>$jr_number</strong> has been deleted. Please Reload to see latest list.</p>";
-                } else {
-                    echo "<p>Error deleting record: " . mysqli_error($conn) . "</p>";
-                }
-            } else {
-                echo "<p>No record found with EOI Number <strong>$jr_number</strong>.</p>";
-            }
-        } else {
-            echo "<p>Please enter a valid EOI number.</p>";
-        }
-
-        mysqli_close($conn);
-
-}
 ?>
 </section>
 </article>
