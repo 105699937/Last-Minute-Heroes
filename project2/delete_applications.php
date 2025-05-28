@@ -10,7 +10,7 @@ if(!isset($_SESSION['name'])){
 <html lang="en">
 <head>
     <?php include "./header.inc" ?>
-    <title>Document</title>
+    <title>Delete applications</title>
 </head>
 <body>
     <?php include "./nav.inc" ?>

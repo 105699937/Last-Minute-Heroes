@@ -8,7 +8,7 @@ if(!isset($_SESSION['name'])){
 <html lang="en">
 <head>
     <?php include "./header.inc" ?>
-    <title>Document</title>
+    <title>Change Status</title>
 </head>
 <body>
     <?php include "./nav.inc" ?>
