@@ -102,7 +102,6 @@ mysqli_close($conn);
                 <!-- <button type="reset">Reset</button> -->
             </form>
         </section>
-        <code>
         <?php 
         if(isset($_SESSION['login_attempts'])){
             $attempts_left = 3 - $_SESSION['login_attempts'];
@@ -110,11 +109,10 @@ mysqli_close($conn);
             echo "<p>too many attempts</p>";
             header("location:index.php");
         }else{
-            echo("you have $attempts_left more attempts left</p>");
+            echo("<p>you have $attempts_left more attempts left</p>");
         }
         }
         ?>
-        </code>
         </article>
     </main>
     <?php include "footer.inc" ?>

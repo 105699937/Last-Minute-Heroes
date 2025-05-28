@@ -16,13 +16,11 @@ if(!isset($_SESSION['name'])){
     <?php include "./nav.inc" ?>
     <main class="application_page_layout top_margin_PC top_margin_mobile hr_manager_tools_page">
     <article>
-        <p>
         <?php 
             if(isset($_SESSION['name'])){
             echo"<h3>Welcome " .$_SESSION['name']. "</h3>"; 
             }  
         ?>
-        </p>
         <h2>Choose your Query</h2>
         <div class="manager_tool_box">
             <form action="hr_manager_tools.php" method="post">

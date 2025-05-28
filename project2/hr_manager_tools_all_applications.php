@@ -41,7 +41,7 @@ if (mysqli_num_rows($result) > 0) {
             <th>Postcode</th>
             <th>Email</th>
             <th>Phone</th>
-            <th>Skills</td>
+            <th>Skills</th>
             <th>Other Skills</th>
             <th>Status</th>
           </tr>";
