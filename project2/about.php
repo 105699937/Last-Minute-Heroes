@@ -56,7 +56,7 @@
          <p>Rory Jordaan: Built the process_eoi.php file to handle form submission, server-side validation, and insertion into the EOI table.</p>
          <br>
         <p>Liam Mathieson: PlaceHolder</p>
-
+        <br>
 
         <h2>Group Photo</h2>
         <figure class="image-row">

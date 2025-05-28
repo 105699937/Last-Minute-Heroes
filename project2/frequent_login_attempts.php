@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,12 +6,12 @@
     <title>Error Page</title>
 </head>
 <body>
-    <?php include "./nav.inc" ?>
+    
     <main class="application_page_layout top_margin_PC" >
         <article>
             <section><h2>Please Try again Later with correct credentials </h2></section>
         </article>
     </main>
-    <?php include "./footer.inc"  ?>
+    
 </body>
 </html>

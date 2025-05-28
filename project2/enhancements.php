@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <?php include "./header.inc" ?>
+    <title>Enhancements </title>
 </head>
 <body>
-    
+    <?php include "./nav.inc"?>
+    <main class=" application_page_layout view_all_applicants top_margin_mobile ">
+        <article>
+            <section>
+                <h3>Access to the web site disabled</h3>
+                <p></p>
+            </section>
+        </article>
+    </main>
+
+    <?php include "./footer.inc" ?>
 </body>
 </html>
