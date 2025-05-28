@@ -12,12 +12,12 @@
     <article>
         <h2>Last Minute Heroes Employment</h2>
         <section>
-            <h6>Please carefully fill all the fields without any space</h6> 
+            <h6>Please carefully fill all the fields without any space</h6>
             <form action="process_eoi.php" method="POST">
                 <fieldset>
                     <legend>Application Form</legend>
                     <label for="JobRefNoSelect">Job Reference Number</label>
-                    <select name="JobRefNo" id="JobRefNoSelect">
+                    <select name="JobRefNo" id="JobRefNoSelect" required>
                         <option value="">Please Select</option>
                         <option value="NA0000076">(NA0000076) Network Administrator</option>
                         <option value="SD0000128">(SD0000128) Front-End Developer Intern</option>
@@ -26,19 +26,19 @@
                     </select>
                     <br>
                     <label for="FirstNameInput">First Name</label>
-                    <input type="text" name="FirstName" id="FirstNameInput" placeholder="Your First Name">
+                    <input type="text" name="FirstName" id="FirstNameInput" placeholder="Your First Name" required>
                     <br>
                     <label for="LastNameInput">Last Name</label>
-                    <input type="text" name="LastName" id="LastNameInput" placeholder="Your Last Name">
+                    <input type="text" name="LastName" id="LastNameInput" placeholder="Your Last Name" required>
                     <br>
                     <label for="BirthDateInput">Date of Birth</label>
-                    <input type="date" name="BirthDate" id="BirthDateInput">
+                    <input type="date" name="BirthDate" id="BirthDateInput" required>
                     <br>
                     <br>
                     <fieldset>
                         <legend>Gender</legend>
                         <label for="GenderMale">Male</label>
-                        <input type="radio" name="Gender" id="GenderMale" value="m">
+                        <input type="radio" name="Gender" id="GenderMale" value="m" required>
                         <label for="GenderFemale">Female</label>
                         <input type="radio" name="Gender" id="GenderFemale" value="f">
                         <label for="GenderUnspecified">Unspecified</label>
@@ -46,14 +46,14 @@
                     </fieldset>
                     <br>
                     <label for="StreetAddressInput">Street Address</label>
-                    <input type="text" name="StreetAddress" id="StreetAddressInput">
+                    <input type="text" name="StreetAddress" id="StreetAddressInput" required>
                     <br>
                     <label for="SuburbAddressInput">Suburb/ Town</label>
-                    <input type="text" name="SuburbAddress" id="SuburbAddressInput">
+                    <input type="text" name="SuburbAddress" id="SuburbAddressInput" required>
                     <br>
                     <br>
                     <label for="StateSelect">State</label>
-                    <select name="State" id="StateSelect">
+                    <select name="State" id="StateSelect" required>
                         <option value="" selected>Please Select</option>
                         <option value="vic">VIC</option>
                         <option value="nsw">NSW</option>
@@ -66,19 +66,19 @@
                     </select>
                     <br>
                     <label for="PostCodeInput">Post Code</label>
-                    <input type="text" name="PostCode" id="PostCodeInput">
+                    <input type="text" name="PostCode" id="PostCodeInput" required>
                     <br>
                     <label for="EmailInput">Email Address</label>
-                    <input type="email" name="Email" id="EmailInput">
+                    <input type="email" name="Email" id="EmailInput" required>
                     <br>
                     <label for="PhoneInput">Phone Number</label>
-                    <input type="text" name="Phone" id="PhoneInput">
+                    <input type="text" name="Phone" id="PhoneInput" required>
                     <br>
                     <label>Required Skills</label>
                     <br>
                     <br>
                     <label for="Skill1Check">Programming</label>
-                    <input type="checkbox" name="Skills[]" id="Skill1Check" value="Programming">
+                    <input type="checkbox" name="Skills[]" id="Skill1Check" value="Programming" checked>
                     <br>
                     <label for="Skill2Check">Enterprise User Management</label>
                     <input type="checkbox" name="Skills[]" id="Skill2Check" value="Enterprise">

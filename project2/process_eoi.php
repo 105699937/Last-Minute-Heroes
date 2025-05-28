@@ -33,7 +33,7 @@
         // If all required form inputs were filled, perform validation 
         if (isset($_POST['JobRefNo']) && isset($_POST['FirstName']) && isset($_POST['LastName']) && isset($_POST['BirthDate']) && isset($_POST['Gender']) && isset($_POST['StreetAddress']) && isset($_POST['SuburbAddress']) && isset($_POST['State']) && isset($_POST['PostCode']) && isset($_POST['Email']) && isset($_POST['Phone']) && isset($_POST['Skills']))
         {
-            // ---------- Initialise values ----------
+            // Initialise Sanitised values
             $JobRefNo = sanitizeInput($_POST['JobRefNo']);
             $FirstName = sanitizeInput($_POST['FirstName']);
             $LastName = sanitizeInput($_POST['LastName']);
