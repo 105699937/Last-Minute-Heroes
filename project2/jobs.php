@@ -17,6 +17,46 @@
         die("Connection failed: " . mysqli_connect_error());
     }
 
+  $createQuery = "CREATE TABLE IF NOT EXISTS `jobs` ("
+    . "`job_id` INT AUTO_INCREMENT PRIMARY KEY,"
+    . "`reference_id` VARCHAR(20) NOT NULL,"
+    . "`position` VARCHAR(100) NOT NULL,"
+    . "`job_description` TEXT NOT NULL,"
+    . "`salary_range` VARCHAR(50),"
+    . "`image_url` VARCHAR(255),"
+    . "`reports_to` VARCHAR(100),"
+    . "`responsibilities` TEXT,"
+    . "`skills` TEXT,"
+    . "`preferred` TEXT);";
+
+    $createResult = mysqli_query($conn, $createQuery);
+    
+    $selectResult = mysqli_query($conn, "SELECT * FROM `jobs`");
+    if (!$selectResult || mysqli_num_rows($selectResult) == 0) {
+      $insertQuert = "INSERT INTO `jobs` ("
+        . "`job_id`, `reference_id`, `position`, `job_description`, `salary_range`,"
+        . "`image_url`, `reports_to`, `responsibilities`, `skills`, `preferred`"
+        . ") VALUES"
+        . "(NULL, 'NA0000076', 'Network Administrator', "
+        . "'As a Network Administrator, you’ll be responsible for the upkeep, configuration, and reliable operation of our client networks.', "
+        . "'$70,000 – $90,000 per year', "
+        . "'images/networkAdminstratorSmall.jpeg', "
+        . "'Senior IT Manager', "
+        . "'Maintain and troubleshoot LAN/WAN network infrastructure\r\nInstall and configure network hardware\r\nMonitor network performance and security\r\nCollaborate with IT support teams', "
+        . "'Degree in Computer Science or related field\r\n3+ years of network administration experience\r\nProficiency in Cisco and Juniper technologies\r\nStrong problem-solving skills', "
+        . "'CCNA/CCNP certification\r\nExperience with cloud networking (Azure, AWS)\r\nUnderstanding of ITIL framework'),"
+
+        . "(NULL, 'SD0000128', 'Front-End Developer Intern', "
+        . "'Join our vibrant team to help turn UI/UX designs into functional and scalable web pages.', "
+        ."'$15 – $20 per hour (paid internship)', "
+        . "'', "
+        . "'UI/UX Lead Designer', "
+        . "'Work closely with designers and developers\r\nWrite clean, scalable, and responsive HTML/CSS\r\nOptimize pages for speed and accessibility\r\nParticipate in code reviews and brainstorming sessions', "
+        . "'HTML5, CSS3, JavaScript fundamentals\r\nCreative mindset\r\nStrong communication and collaboration skills', "
+        . "'Knowledge of Git\r\nExperience using Figma or Adobe XD\r\nEnthusiasm for new technologies');";
+        mysqli_query($conn, $insertQuert);
+    }
+
     $query = "SELECT * FROM jobs";
     try {
       $result = mysqli_query($conn, $query);
@@ -25,8 +65,8 @@
         $result = false;
     }
 
-    if ($result && mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
+    if (!$result || mysqli_num_rows($result) > 0) {
+        while ($result && $row = mysqli_fetch_assoc($result)) {
             echo "<section>";
             echo "<div class='text_content'>";
             echo "<h2>Job Opportunity</h2>";
