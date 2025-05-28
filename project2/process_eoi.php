@@ -17,6 +17,13 @@
 
     // Database connection settings
     require_once("settings.php");
+    
+    // Session Variables
+    session_start();
+    if (!isset($_SESSION['debug']))
+    {
+        $_SESSION['debug'] = false;;
+    }
 
     // initialise error message to ''
     $errorMessage = '';
@@ -136,7 +143,8 @@
                         . "<p>Error code " . $db_connect->errno
                         . ": " . $db_connect->error . "</p>"
                         . "<pre>". var_dump($e->getTraceAsString()) . "</pre>");
-                }
+                    }
+
                 // Set query to create EOI Table if it doesn't exist
                 $query = "CREATE TABLE IF NOT EXISTS eoi ("
                     . "EOInumber int(12) NOT NULL AUTO_INCREMENT,"
@@ -171,9 +179,21 @@
                 // Prepare SQL query
                 $query = "INSERT INTO EOI (job_reference, first_name, last_name, dob, gender, street_address, suburb, state, postcode, email, phone, skills, other_skills)
                 VALUES ('$JobRefNo', '$FirstName', '$LastName', STR_TO_DATE('$BirthDate', '%Y-%m-%d'), '$Gender', '$StreetAddress', '$SuburbAddress', '$State', '$PostCode', '$Email', '$Phone', '$Skills', '$OtherSkills');";
-                echo("<p>Query: " . $query . "</p>");
-                // Execute query
+                // Execute Insert query
                 if (!$db_connect->query($query)) {
+                    $e = new \Exception;
+                    
+                    die("<p>Failure: Unable to execute the query.</p>"
+                        . "<p>Query: " . $query . "</p>"
+                        . "<p>Error code " . $db_connect->errno
+                        . ": " . $db_connect->error . "</p>"
+                        . "<pre>". var_dump($e->getTraceAsString()) . "</pre>");
+                }
+
+                $selectQuery = "SELECT EOInumber FROM EOI WHERE job_reference LIKE '$JobRefNo' AND first_name LIKE '$FirstName' AND last_name LIKE '$LastName' AND dob = STR_TO_DATE('$BirthDate', '%Y-%m-%d');";
+                // Execute Select query
+                $queryResult = false;
+                if (!$queryResult = $db_connect->query($selectQuery)) {
                     $e = new \Exception;
                     
                     die("<p>Failure: Unable to execute the query.</p>"
@@ -181,13 +201,10 @@
                         . ": " . $db_connect->error . "</p>"
                         . "<pre>". var_dump($e->getTraceAsString()) . "</pre>");
                 }
-                // tonoy : I'm adding this part  
-                    // if the user applies properly we will show him a message and his EOI number
-                    // session_start();
-                    // $_SESSION["applied"] = "yes";
-                    // header("location:job_application_success.php");
-                    // exit();
-                    // why it's not working :( ! 
+
+                $row = $queryResult->fetch_row();
+                header('refresh: 5; url=job_application_success.php');
+                echo("<p>Application Successful. Your application number is: {$row[0]}. You are being redirected in 5s, thank you for your application.</p>");
             }
             // echo errorMessage from previous session
             echo($errorMessage);
@@ -202,17 +219,22 @@
         // reset errorMessage
         $errorMessage = '';
 
-        // Debug Print Values
-        echo("<p>Job Ref No: " . $JobRefNo . "</p>" . 
-        "<p>Name: " . $FirstName . " " . $LastName . "</p>" . 
-        "<p>Birth Date: " . $BirthDate . "</p>" . 
-        "<p>Gender: " . $Gender . "</p>" . 
-        "<p>Address: " . $StreetAddress . ", " . $SuburbAddress . ", " . $State . ", " . $PostCode . "</p>" . 
-        "<p>Email: " . $Email . "</p>" . 
-        "<p>Phone: " . $Phone . "</p>" . 
-        "<p>Other Skills: " . $OtherSkills . "</p>");
-        echo("<p>");
-        print_r($Skills);
-        echo("</p>");
+        // Debug Print Application Input Values
+        if ($_SESSION['debug']) {
+            echo("<p>Job Ref No: " . $JobRefNo . "</p>" . 
+            "<p>Name: " . $FirstName . " " . $LastName . "</p>" . 
+            "<p>Birth Date: " . $BirthDate . "</p>" . 
+            "<p>Gender: " . $Gender . "</p>" . 
+            "<p>Address: " . $StreetAddress . ", " . $SuburbAddress . ", " . $State . ", " . $PostCode . "</p>" . 
+            "<p>Email: " . $Email . "</p>" . 
+            "<p>Phone: " . $Phone . "</p>" . 
+            "<p>Other Skills: " . $OtherSkills . "</p>");
+            echo("<p>");
+            print_r($Skills);
+            echo("</p>");
+        }
+    } else {
+        header("refresh: 3; url=apply.php");
+        echo("<p>You are being redirected. Please apply through the form provided.</p>");
     }
 ?>
