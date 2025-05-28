@@ -36,6 +36,35 @@ if(!isset($_SESSION['name'])){
 include_once("./settings.php");
 $conn = mysqli_connect($host,$user,$pswd,$dbnm);
 $query = "SELECT * FROM eoi ORDER BY EOInumber ASC";
+if (isset($_POST['change_status'])) {
+    $eoi_number = mysqli_real_escape_string($conn, trim($_POST['eoi_number']));
+    $status = mysqli_real_escape_string($conn, trim($_POST['status']));
+
+    // Validation
+    if (empty($eoi_number) || empty($status)) {
+        echo "<p>⚠️ Please enter both EOI Number and a new status.</p>";
+        exit;
+    }
+
+    // Check if EOI exists
+    $check_query = "SELECT * FROM eoi WHERE EOInumber = '$eoi_number'";
+    $check_result = mysqli_query($conn, $check_query);
+
+    if (mysqli_num_rows($check_result) > 0) {
+        // Perform update
+        $update_query = "UPDATE eoi SET status = '$status' WHERE EOInumber = '$eoi_number'";
+        if (mysqli_query($conn, $update_query)) {
+            echo "<p>✅ Status updated successfully for EOI #<strong>$eoi_number</strong>.</p>";
+        } else {
+            echo "<p>❌ Error updating status: " . mysqli_error($conn) . "</p>";
+        }
+    } else {
+        echo "<p>❌ No EOI found with number <strong>$eoi_number</strong>.</p>";
+    }
+} else {
+    // echo "<p>⚠️ Invalid request.</p>";
+}
+
 $result = mysqli_query($conn, $query);
 
 if (mysqli_num_rows($result) > 0) {
@@ -78,34 +107,7 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 // change status 
-if (isset($_POST['change_status'])) {
-    $eoi_number = mysqli_real_escape_string($conn, trim($_POST['eoi_number']));
-    $status = mysqli_real_escape_string($conn, trim($_POST['status']));
 
-    // Validation
-    if (empty($eoi_number) || empty($status)) {
-        echo "<p>⚠️ Please enter both EOI Number and a new status.</p>";
-        exit;
-    }
-
-    // Check if EOI exists
-    $check_query = "SELECT * FROM eoi WHERE EOInumber = '$eoi_number'";
-    $check_result = mysqli_query($conn, $check_query);
-
-    if (mysqli_num_rows($check_result) > 0) {
-        // Perform update
-        $update_query = "UPDATE eoi SET status = '$status' WHERE EOInumber = '$eoi_number'";
-        if (mysqli_query($conn, $update_query)) {
-            echo "<p>✅ Status updated successfully for EOI #<strong>$eoi_number</strong>.</p>";
-        } else {
-            echo "<p>❌ Error updating status: " . mysqli_error($conn) . "</p>";
-        }
-    } else {
-        echo "<p>❌ No EOI found with number <strong>$eoi_number</strong>.</p>";
-    }
-} else {
-    // echo "<p>⚠️ Invalid request.</p>";
-}
 ?>
 </section>
 </article>
