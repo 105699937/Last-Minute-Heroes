@@ -18,7 +18,12 @@
     }
 
     $query = "SELECT * FROM jobs";
-    $result = mysqli_query($conn, $query);
+    try {
+      $result = mysqli_query($conn, $query);
+    } catch (\Exception $e) {
+        echo "<p>Error executing query: " . htmlspecialchars($e->getMessage()) . "</p>";
+        $result = false;
+    }
 
     if ($result && mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {

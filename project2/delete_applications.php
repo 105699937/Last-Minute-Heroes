@@ -56,9 +56,14 @@ if(isset($_POST['jr_number'])){
     
 
 }
-$result = mysqli_query($conn, $query);
+try  {
+    $result = mysqli_query($conn, $query);
+} catch (\Exception $e) {
+    echo "<p>Error executing query: " . htmlspecialchars($e->getMessage()) . "</p>";
+    $result = false;
+}
 
-if (mysqli_num_rows($result) > 0) {
+if (!$result || mysqli_num_rows($result) > 0) {
     echo "<table  id='all_application_table'>";
     echo "<tr>
             <th>EOI Number</th>
@@ -75,7 +80,7 @@ if (mysqli_num_rows($result) > 0) {
             <th>Status</th>
           </tr>";
 
-    while ($row = mysqli_fetch_assoc($result)) {
+    while ($result && $row = mysqli_fetch_assoc($result)) {
         echo "<tr>
                 <td>{$row['EOInumber']}</td>
                 <td>{$row['job_reference']}</td>
